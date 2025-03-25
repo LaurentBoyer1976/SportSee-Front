@@ -1,5 +1,6 @@
 import React from 'react';
 import MainHeader from '../components/mainHeader.jsx';
+import ChartsLayout from '../layouts/chartsLayout.jsx';
 
 
 const Profile = () => {
@@ -7,9 +8,7 @@ const Profile = () => {
         <article className="profile">
             <MainHeader />
             <section className="profileContainer">
-                <article className='charts__Container'>
-
-                </article>
+                <ChartsLayout />
                 <article className='keyData__Container'>
 
                 </article>
