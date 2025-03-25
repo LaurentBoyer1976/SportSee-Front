@@ -1,8 +1,8 @@
 import React from "react";
 import NavLink from "./navLink.jsx";
 import biking from "./../../assets/icons/biking.svg";
-import dumbbell from "./../../assets/icons/dumbbell.svg";
-import lotus from "./../../assets/icons/lotus.svg";
+import dumbbell from "./../../assets/icons/dumbell.svg";
+import lotus from "./../../assets/icons/lotusposition.svg";
 import swim from "./../../assets/icons/swim.svg";
 
 const navLabels = ["Accueil", "Profil", "Réglage", "Communauté"];

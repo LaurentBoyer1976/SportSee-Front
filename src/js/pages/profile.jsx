@@ -1,7 +1,7 @@
 import React from "react";
-import MainHeader from "./MainHeader";
-import ChartsLayout from "./ChartsLayout";
-import KeyDataCard from "./KeyDataCard";
+import MainHeader from "./../components/mainHeader.jsx";
+import ChartsLayout from "./../layouts/chartsLayout.jsx";
+import KeyDataCard from "./../components/keyDataCard.jsx";
 
 const Profile = ({ userId }) => {
   if (!userId) {

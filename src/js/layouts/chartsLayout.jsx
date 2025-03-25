@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getUserActivity, getUserAverageSessions, getUserPerformance } from "../services/indexService";
-import BarChart from "./BarChart";
-import LineChart from "./LineChart";
-import RadarChart from "./RadarChart";
-import RadialChart from "./RadialChart";
+import BarChart from "./../components/barChart.jsx";
+import LineChart from "./../components/lineChart.jsx";
+import RadarChart from "./../components/radarChart.jsx";
+import RadialChart from "./../components/radialChart.jsx";
+
 
 const ChartsLayout = ({ userId }) => {
   const [activity, setActivity] = useState([]);
