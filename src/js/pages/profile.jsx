@@ -7,9 +7,7 @@ const Profile = () => {
         <article className="profile">
             <MainHeader />
             <section className="profileContainer">
-                <article className='charts__Container'>
-
-                </article>
+                
                 <article className='keyData__Container'>
 
                 </article>
