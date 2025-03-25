@@ -1,87 +1,129 @@
-# Welcome to React Router!
+# SportSee Frontend
 
-A modern, production-ready template for building full-stack React applications using React Router.
+SportSee est une application de suivi sportif développée avec React et Vite.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Fonctionnalités
 
-## Features
+- ⚡️ Développement rapide avec Vite
+- 🎨 Stylisme avec Sass
+- ✅ Tests unitaires avec Jest et Testing Library
+- 🛠️ Qualité de code avec ESLint et Prettier
+- 📊 Visualisation des données avec Recharts
+- 🔄 React Router pour la navigation
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Prérequis
 
-## Getting Started
+- [Node.js](https://nodejs.org/) (version 16 ou supérieure)
+- [npm](https://www.npmjs.com/) (installé avec Node.js)
 
-### Installation
+## Installation
 
-Install the dependencies:
+Clonez le dépôt et installez les dépendances :
 
 ```bash
+git clone https://github.com/votre-utilisateur/sportsee-front.git
+cd sportsee-front
 npm install
 ```
 
-### Development
+Clonez également le backend disponible sur GitHub :
 
-Start the development server with HMR:
+```bash
+git clone https://github.com/LaurentBoyer1976/SportSee-Back.git
+```
+
+Suivez les instructions dans le dépôt backend pour démarrer le serveur.
+
+## Développement
+
+Démarrez le serveur de développement :
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+L'application sera disponible à l'adresse [http://localhost:5173](http://localhost:5173).
 
-## Building for Production
+## Compilation des styles
 
-Create a production build:
+Les fichiers Sass sont compilés en CSS. Pour compiler manuellement ou surveiller les changements :
+
+- **Compilation unique :**
+  ```bash
+  npm run build:css
+  ```
+
+- **Surveillance des changements :**
+  ```bash
+  npm run watch:css
+  ```
+
+## Tests
+
+Exécutez les tests unitaires avec Jest :
+
+```bash
+npm run test
+```
+
+## Linting et formatage
+
+- **Linting avec ESLint :**
+  ```bash
+  npm run lint
+  ```
+
+- **Formatage avec Prettier :**
+  ```bash
+  npm run format
+  ```
+
+## Production
+
+Créez une version de production optimisée :
 
 ```bash
 npm run build
 ```
 
-## Deployment
+Le dossier `dist/` contiendra les fichiers prêts pour le déploiement.
 
-### Docker Deployment
+## Déploiement
 
-To build and run using Docker:
+### Docker
+
+Pour construire et exécuter l'application avec Docker :
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+docker build -t sportsee-app .
+docker run -p 3000:3000 sportsee-app
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+### Déploiement manuel
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+Déployez le contenu du dossier `dist/` sur un serveur web ou une plateforme cloud.
 
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## Structure du projet
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+src/
+├── components/    # Composants React
+├── pages/         # Pages de l'application
+├── styles/        # Fichiers Sass et CSS
+├── utils/         # Fonctions utilitaires
+└── App.jsx        # Composant principal
 ```
 
-## Styling
+## Outils et technologies
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+- **React** : Bibliothèque pour construire l'interface utilisateur.
+- **Vite** : Outil de build rapide pour le développement.
+- **Sass** : Préprocesseur CSS pour un stylisme avancé.
+- **Jest** : Framework de tests unitaires.
+- **ESLint** : Analyse statique pour la qualité du code.
+- **Prettier** : Formatage automatique du code.
+- **Recharts** : Bibliothèque pour les graphiques.
 
 ---
 
-Built with ❤️ using React Router.
+Développé avec ❤️ par l'équipe SportSee.
