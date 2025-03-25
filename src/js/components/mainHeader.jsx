@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { getUserInfo } from "../services/indexService";
 import UserName from "./userName";
 
-const MainHeader = () => {
-
-    //TODO : Récupérer le nom de l'utilisateur et déplacer le call API dans un hook.
+const MainHeader = ({ userId }) => {
   const [userName, setUserName] = useState("");
 
-  // Simuler une récupération de données utilisateur
   useEffect(() => {
-    // Remplacez cette partie par un appel API si nécessaire
-    const fetchUserName = async () => {
-      const user = { name: "Jean" }; // Exemple de données utilisateur
-      setUserName(user.name);
+    const fetchData = async () => {
+      try {
+        const userInfo = await getUserInfo(userId);
+        setUserName(userInfo.firstName);
+      } catch (error) {
+        console.error("Error fetching user name:", error);
+      }
     };
 
-    fetchUserName();
-  }, []);
+    fetchData();
+  }, [userId]);
 
   return (
     <header>

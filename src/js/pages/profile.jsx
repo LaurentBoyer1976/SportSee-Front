@@ -1,21 +1,16 @@
-import React from 'react';
-import MainHeader from '../components/mainHeader.jsx';
-import ChartsLayout from '../layouts/chartsLayout.jsx';
-import KeyDataCard from '../components/keyDataCard.jsx';
+import React from "react";
+import MainHeader from "./MainHeader";
+import ChartsLayout from "./ChartsLayout";
+import KeyDataCard from "./KeyDataCard";
 
+const Profile = ({ userId }) => {
+  return (
+    <div className="profile">
+      <MainHeader userId={userId} />
+      <ChartsLayout userId={userId} />
+      <KeyDataCard userId={userId} />
+    </div>
+  );
+};
 
-const Profile = () => {
-    return (
-        <article className="profile">
-            <MainHeader />
-            <section className="profileContainer">
-                    <ChartsLayout />
-                <article className='keyData__Container'>
-                    <KeyDataCard />
-                </article>
-            </section>
-
-        </article>  
-    );
-}
 export default Profile;

@@ -1,23 +1,41 @@
-import React from 'react';
-import BarChart from '../components/barChart.jsx';
-import LineChart from '../components/lineChart.jsx';
-import RadarChart from '../components/radarChart.jsx';
-import RadialChart from '../components/radialChart.jsx';
+import React, { useEffect, useState } from "react";
+import { getUserActivity, getUserAverageSessions, getUserPerformance } from "../services/indexService";
+import BarChart from "./BarChart";
+import LineChart from "./LineChart";
+import RadarChart from "./RadarChart";
+import RadialChart from "./RadialChart";
 
+const ChartsLayout = ({ userId }) => {
+  const [activity, setActivity] = useState([]);
+  const [averageSessions, setAverageSessions] = useState([]);
+  const [performance, setPerformance] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const activityData = await getUserActivity(userId);
+        const averageSessionsData = await getUserAverageSessions(userId);
+        const performanceData = await getUserPerformance(userId);
 
-const ChartsLayout = () => {
-    return (
-            <article className='charts__Container'>
-                <div>
-                    <BarChart />
-                </div>
-                <div>
-                    <LineChart />
-                    <RadarChart />
-                    <RadialChart />
-                </div>
-            </article>
-    );
+        setActivity(activityData);
+        setAverageSessions(averageSessionsData);
+        setPerformance(performanceData);
+      } catch (error) {
+        console.error("Error fetching chart data:", error);
+      }
+    };
+
+    fetchData();
+  }, [userId]);
+
+  return (
+    <div className="chartsLayout">
+      <BarChart data={activity} />
+      <LineChart data={averageSessions} />
+      <RadarChart data={performance} />
+      <RadialChart data={performance} />
+    </div>
+  );
 };
+
 export default ChartsLayout;
