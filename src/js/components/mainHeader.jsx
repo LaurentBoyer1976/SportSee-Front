@@ -18,6 +18,10 @@ const MainHeader = ({ userId }) => {
     fetchData();
   }, [userId]);
 
+  if (!userName) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <header>
       <div>

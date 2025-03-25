@@ -28,6 +28,10 @@ const ChartsLayout = ({ userId }) => {
     fetchData();
   }, [userId]);
 
+  if (!activity.length || !averageSessions.length || !performance) {
+    return <div>Loading charts...</div>;
+  }
+
   return (
     <div className="chartsLayout">
       <BarChart data={activity} />

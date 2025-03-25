@@ -11,7 +11,7 @@ import home from "./../../assets/logos/SportSeeLogo.svg";
 const HomeLink = () => {
   return (
     <Link className="homeLinkLogo" to="/">
-      {home}
+      <img src={home} alt="Home" />
     </Link>
   );
 };

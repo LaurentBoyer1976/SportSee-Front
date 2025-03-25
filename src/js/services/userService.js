@@ -6,11 +6,16 @@ const BASE_URL = "http://localhost:3000/user";
  * @returns {Promise<Object>} - Données utilisateur brutes
  */
 export const fetchUserInfo = async (userId) => {
-  const response = await fetch(`${BASE_URL}/${userId}`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch user info");
+  try {
+    const response = await fetch(`${BASE_URL}/${userId}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user info");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching user info:", error);
+    throw error;
   }
-  return response.json();
 };
 
 /**
@@ -19,11 +24,16 @@ export const fetchUserInfo = async (userId) => {
  * @returns {Promise<Object>} - Activité quotidienne brute
  */
 export const fetchUserActivity = async (userId) => {
-  const response = await fetch(`${BASE_URL}/${userId}/activity`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch user activity");
+  try {
+    const response = await fetch(`${BASE_URL}/${userId}/activity`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user activity");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching user activity:", error);
+    throw error;
   }
-  return response.json();
 };
 
 /**
@@ -32,11 +42,16 @@ export const fetchUserActivity = async (userId) => {
  * @returns {Promise<Object>} - Sessions moyennes brutes
  */
 export const fetchUserAverageSessions = async (userId) => {
-  const response = await fetch(`${BASE_URL}/${userId}/average-sessions`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch user average sessions");
+  try {
+    const response = await fetch(`${BASE_URL}/${userId}/average-sessions`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user average sessions");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching user average sessions:", error);
+    throw error;
   }
-  return response.json();
 };
 
 /**
@@ -45,9 +60,14 @@ export const fetchUserAverageSessions = async (userId) => {
  * @returns {Promise<Object>} - Performance brute
  */
 export const fetchUserPerformance = async (userId) => {
-  const response = await fetch(`${BASE_URL}/${userId}/performance`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch user performance");
+  try {
+    const response = await fetch(`${BASE_URL}/${userId}/performance`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user performance");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching user performance:", error);
+    throw error;
   }
-  return response.json();
 };
