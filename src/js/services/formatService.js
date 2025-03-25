@@ -1,13 +1,22 @@
 /**
+ * Récupère l'ID de l'utilisateur depuis les données brutes
+ * @param {Object} data - Données brutes
+ * @returns {number} - ID de l'utilisateur
+ */
+const getUserId = (data) => data.id || data.userId;
+
+/**
  * Standardise les informations principales d'un utilisateur
  * @param {Object} data - Données brutes de l'utilisateur
  * @returns {Object} - Données utilisateur standardisées
  */
 export const formatUserInfo = (data) => ({
-  id: data.id,
-  firstName: data.userInfos?.firstName || "Inconnu",
-  lastName: data.userInfos?.lastName || "Inconnu",
-  age: data.userInfos?.age || 0,
+  userId: getUserId(data),
+  userInfo: {
+    firstName: data.userInfos?.firstName || "Inconnu",
+    lastName: data.userInfos?.lastName || "Inconnu",
+    age: data.userInfos?.age || 0,
+  },
   score: data.todayScore || data.score || 0,
   keyData: {
     calories: data.keyData?.calorieCount || 0,
@@ -20,25 +29,31 @@ export const formatUserInfo = (data) => ({
 /**
  * Standardise l'activité quotidienne d'un utilisateur
  * @param {Object} data - Données brutes d'activité
- * @returns {Array} - Activité quotidienne standardisée
+ * @returns {Object} - Activité quotidienne standardisée
  */
-export const formatUserActivity = (data) =>
-  data.sessions.map((session) => ({
+export const formatUserActivity = (data) => ({
+  userId: getUserId(data),
+  sessions: data.sessions.map((session, index) => ({
     day: session.day,
     kilogram: session.kilogram,
     calories: session.calories,
-  }));
+    index: index,
+  })),
+});
 
 /**
  * Standardise les sessions moyennes d'un utilisateur
  * @param {Object} data - Données brutes de sessions moyennes
- * @returns {Array} - Sessions moyennes standardisées
+ * @returns {Object} - Sessions moyennes standardisées
  */
-export const formatUserAverageSessions = (data) =>
-  data.sessions.map((session) => ({
+export const formatUserAverageSessions = (data) => ({
+  userId: getUserId(data),
+  sessions: data.sessions.map((session, index) => ({
     day: session.day,
     sessionLength: session.sessionLength,
-  }));
+    index: index,
+  })),
+});
 
 /**
  * Standardise la performance d'un utilisateur
@@ -46,9 +61,12 @@ export const formatUserAverageSessions = (data) =>
  * @returns {Object} - Performance utilisateur standardisée
  */
 export const formatUserPerformance = (data) => ({
+  userId: getUserId(data),
   kind: data.kind,
-  data: data.data.map((item) => ({
+  data: data.data.map((item, index) => ({
+    kindId: item.kind,
+    kindName: data.kind[item.kind],
     value: item.value,
-    kind: data.kind[item.kind],
+    index: index,
   })),
 });

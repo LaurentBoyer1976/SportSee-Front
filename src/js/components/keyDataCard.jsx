@@ -16,8 +16,6 @@ const KeyDataCard = ({ userId }) => {
       try {
         const userInfo = await getUserInfo(userId);
        
-        console.log("userInfo:", userInfo);
-
         // Vérifiez si keyData existe
         if (!userInfo.keyData) {
           console.error("keyData is missing or undefined");
@@ -31,8 +29,6 @@ const KeyDataCard = ({ userId }) => {
           carbohydrateCount: userInfo.keyData.carbs || userInfo.keyData.carbohydrateCount,
           lipidCount: userInfo.keyData.fat || userInfo.keyData.lipidCount,
         };
-
-        console.log("normalizedKeyData:", normalizedKeyData);
 
         // Itération sur les clés normalisées pour générer les données
         const formattedKeyData = Object.entries(normalizedKeyData).map(([key, value]) => {
@@ -67,7 +63,6 @@ const KeyDataCard = ({ userId }) => {
 
           return { icon, text, value, unit };
         });
-console.log("formattedKeyData:", formattedKeyData);
         // Filtrez les valeurs nulles (au cas où une clé inconnue est ignorée)
         setKeyData(formattedKeyData.filter((data) => data !== null));
       } catch (error) {
@@ -77,7 +72,6 @@ console.log("formattedKeyData:", formattedKeyData);
 
     fetchData();
   }, [userId]);
-console.log("keyData:", keyData);
   return (
     <div className="keyDataCard">
       {keyData.map((data, index) => (
