@@ -17,6 +17,7 @@ import {
 // Export des fonctions combinées
 export const getUserInfo = async (userId) => {
   const rawData = await fetchUserInfo(userId);
+  console.log("rawData:", rawData);
   if (!rawData || !rawData.data) {
     throw new Error("Invalid data format for user info");
   }

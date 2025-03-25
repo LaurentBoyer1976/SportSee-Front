@@ -10,19 +10,26 @@ const navIcons = [biking, dumbbell, lotus, swim];
 
 /**
  * @description NavBar component
- * @param {void}
+ * @param {Object} props - Props du composant
+ * @param {"text"|"icon"} props.type - Type d'affichage : "text" pour les textes, "icon" pour les icônes
  * @returns {JSX.Element} NavBar component
  */
-
-const NavBar = () => {
+const NavBar = ({ type }) => {
   return (
     <nav className="navBar">
       <ul className="navList">
-        {navLabels.map((label, index) => (
-          <li className="navList__item" key={index}>
-            <NavLink text={label} icon={navIcons[index]} />
-          </li>
-        ))}
+        {type === "text" &&
+          navLabels.map((label, index) => (
+            <li className="navList__item" key={index}>
+              <NavLink text={label} />
+            </li>
+          ))}
+        {type === "icon" &&
+          navIcons.map((icon, index) => (
+            <li className="navList__item" key={index}>
+              <NavLink icon={icon} />
+            </li>
+          ))}
       </ul>
     </nav>
   );
