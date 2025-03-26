@@ -1,7 +1,8 @@
 import React from "react";
 
-const UserName = ({ name }) => {
-  return <h1>Bonjour, {name} !</h1>;
+const UserName = ({data})=> {
+  console.log("data dans userName:", data);  
+  return <h1>Bonjour, {data}!</h1>;
 };
 
 export default UserName;

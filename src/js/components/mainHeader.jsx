@@ -9,7 +9,7 @@ const MainHeader = ({ userId }) => {
     const fetchData = async () => {
       try {
         const userInfo = await getUserInfo(userId);
-        setUserName(userInfo.firstName);
+        setUserName(userInfo.userInfo.firstName);
       } catch (error) {
         console.error("Error fetching user name:", error);
       }
@@ -25,7 +25,7 @@ const MainHeader = ({ userId }) => {
   return (
     <header>
       <div>
-        <UserName name={userName} />
+        <UserName data={userName} />
         <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       </div>
     </header>
