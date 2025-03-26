@@ -10,6 +10,7 @@ const ChartsLayout = ({ userId }) => {
   const [activity, setActivity] = useState([]);
   const [averageSessions, setAverageSessions] = useState([]);
   const [performance, setPerformance] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,27 +19,35 @@ const ChartsLayout = ({ userId }) => {
         const averageSessionsData = await getUserAverageSessions(userId);
         const performanceData = await getUserPerformance(userId);
 
-        setActivity(activityData);
-        setAverageSessions(averageSessionsData);
-        setPerformance(performanceData);
+        console.log("Performance.data:", performanceData);
+
+        setActivity(activityData.sessions); // Assurez-vous de passer les sessions
+        setAverageSessions(averageSessionsData.sessions); // Assurez-vous de passer les sessions
+        setPerformance(performanceData); // Passez l'objet complet
+        console.log("Performance Data:", performance.data);
       } catch (error) {
         console.error("Error fetching chart data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, [userId]);
 
-  if (!activity.length || !averageSessions.length || !performance) {
+  if (isLoading) {
     return <div>Loading charts...</div>;
   }
 
   return (
     <div className="chartsLayout">
       <BarChart data={activity} />
-      <LineChart data={averageSessions} />
-      <RadarChart data={performance} />
-      <RadialChart data={performance} />
+      <div className="charts__container" style={{ display: "flex", width: "100%", minHeight: "400px", height: "100%" }}> 
+          <LineChart data={averageSessions} />
+          <RadarChart data={performance.data} />
+          <RadialChart data={performance} />
+      </div>
+      
     </div>
   );
 };

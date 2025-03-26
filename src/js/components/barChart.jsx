@@ -2,6 +2,7 @@ import React from "react";
 import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
 const BarChart = ({ data }) => {
+  console.log("données dans barChart:",data);
   return (
     <RechartsBarChart width={500} height={300} data={data}>
       <CartesianGrid strokeDasharray="3 3" />

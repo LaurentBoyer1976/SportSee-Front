@@ -1,7 +1,12 @@
 import React from "react";
 
-const UserName = ({data})=> {
-  console.log("data dans userName:", data);  
+
+/**
+ * @description User name component
+ * @param {Object} data - User name data
+ * @returns {JSX.Element} User name component
+ */
+const UserName = ({data})=> { 
   return <h1>Bonjour, {data}!</h1>;
 };
 
