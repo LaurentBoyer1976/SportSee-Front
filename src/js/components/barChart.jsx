@@ -1,17 +1,18 @@
 import React from "react";
-import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import BaseChart from "./baseChart";
 
 const BarChart = ({ data }) => {
-  console.log("données dans barChart:",data);
   return (
-    <RechartsBarChart width={500} height={300} data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="day" />
-      <YAxis />
-      <Tooltip />
-      <Bar dataKey="calories" fill="#8884d8" />
-      <Bar dataKey="kilogram" fill="#82ca9d" />
-    </RechartsBarChart>
+    <BaseChart
+      type="bar"
+      data={data}
+      config={{
+        bars: [
+          { dataKey: "calories", fill: "#8884d8" },
+          { dataKey: "kilogram", fill: "#82ca9d" },
+        ],
+      }}
+    />
   );
 };
 

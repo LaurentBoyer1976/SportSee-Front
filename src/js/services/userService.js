@@ -1,73 +1,50 @@
 const BASE_URL = "http://localhost:3000/user";
 
 /**
- * Récupère les informations principales d'un utilisateur
- * @param {number} userId - ID de l'utilisateur
- * @returns {Promise<Object>} - Données utilisateur brutes
+ * Fonction générique pour effectuer un appel API.
+ * @param {string} endpoint - Endpoint de l'API.
+ * @returns {Promise<Object>} - Données brutes de l'API.
  */
-export const fetchUserInfo = async (userId) => {
+const fetchApiData = async (endpoint) => {
   try {
-    const response = await fetch(`${BASE_URL}/${userId}`);
+    const response = await fetch(`${BASE_URL}/${endpoint}`);
     if (!response.ok) {
-      throw new Error("Failed to fetch user info");
+      throw new Error(`Failed to fetch data from ${endpoint}`);
     }
-    return response.json();
+    const data = await response.json();
+
+    // Ajout de logs pour vérifier les données brutes
+    console.log(`fetchApiData - ${endpoint} - raw data:`, data);
+
+    return data;
   } catch (error) {
-    console.error("Error fetching user info:", error);
+    console.error(`Error fetching data from ${endpoint}:`, error);
     throw error;
   }
 };
 
 /**
- * Récupère l'activité quotidienne d'un utilisateur
- * @param {number} userId - ID de l'utilisateur
- * @returns {Promise<Object>} - Activité quotidienne brute
+ * Récupère les informations principales d'un utilisateur.
+ * @param {number} userId - ID de l'utilisateur.
  */
-export const fetchUserActivity = async (userId) => {
-  try {
-    const response = await fetch(`${BASE_URL}/${userId}/activity`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch user activity");
-    }
-    return response.json();
-  } catch (error) {
-    console.error("Error fetching user activity:", error);
-    throw error;
-  }
-};
+export const fetchUserInfo = (userId) => fetchApiData(`${userId}`);
 
 /**
- * Récupère les sessions moyennes d'un utilisateur
- * @param {number} userId - ID de l'utilisateur
- * @returns {Promise<Object>} - Sessions moyennes brutes
+ * Récupère l'activité quotidienne d'un utilisateur.
+ * @param {number} userId - ID de l'utilisateur.
  */
-export const fetchUserAverageSessions = async (userId) => {
-  try {
-    const response = await fetch(`${BASE_URL}/${userId}/average-sessions`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch user average sessions");
-    }
-    return response.json();
-  } catch (error) {
-    console.error("Error fetching user average sessions:", error);
-    throw error;
-  }
-};
+export const fetchUserActivity = (userId) => fetchApiData(`${userId}/activity`);
 
 /**
- * Récupère la performance d'un utilisateur
- * @param {number} userId - ID de l'utilisateur
- * @returns {Promise<Object>} - Performance brute
+ * Récupère les sessions moyennes d'un utilisateur.
+ * @param {number} userId - ID de l'utilisateur.
  */
-export const fetchUserPerformance = async (userId) => {
-  try {
-    const response = await fetch(`${BASE_URL}/${userId}/performance`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch user performance");
-    }
-    return response.json();
-  } catch (error) {
-    console.error("Error fetching user performance:", error);
-    throw error;
-  }
-};
+export const fetchUserAverageSessions = (userId) =>
+  fetchApiData(`${userId}/average-sessions`);
+
+/**
+ * Récupère la performance d'un utilisateur.
+ * @param {number} userId - ID de l'utilisateur.
+ */
+export const fetchUserPerformance = (userId) =>
+  fetchApiData(`${userId}/performance`);

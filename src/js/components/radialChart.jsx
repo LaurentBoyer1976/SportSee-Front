@@ -1,66 +1,62 @@
 import React from "react";
-import { RadialBarChart, RadialBar } from "recharts";
+import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 
+/**
+ * Composant RadialChart pour afficher un graphique radial.
+ * @param {Array} data - Données à afficher (doit contenir un objet avec une clé `value`).
+ * @returns {JSX.Element} - Composant graphique radial.
+ */
 const RadialChart = ({ data }) => {
-  console.log("RadialChart data:", data); // Vérifiez que les données sont correctes
+  if (!data || data.length === 0 || data[0].value == null || isNaN(data[0].value)) {
+    console.error("RadialChart: Les données sont manquantes ou invalides.", data);
+    return <div>Aucune donnée disponible</div>;
+  }
 
-  // Récupérez la valeur (par exemple, 12 pour 12%)
-  const value = data[0]?.value || 0;
+  const value = data[0].value;
 
-  // Calculer l'angle de fin en fonction de la valeur
-  const endAngle = 180 + (360 * value) / 100; // Convertit la valeur en angle (12% -> 180° + 43.2°)
+  // Calculer l'angle de fin en fonction du score (x%)
+  const endAngle = 90 + (360 * value) / 100; // Départ à 90° et progression selon le score
 
   return (
-    <RadialBarChart
-      width={500}
-      height={300}
-      cx="50%"
-      cy="50%"
-      startAngle={180} // Départ à gauche (180°)
-      endAngle={endAngle} // Fin en fonction de la valeur
-      innerRadius="50%"
-      outerRadius="80%"
-      barSize={10}
-      data={data} // Utilisez les données formatées
-    >
-      {/* Texte "Score" en haut à gauche */}
-      <text
-        x="10%" // Position horizontale en haut à gauche
-        y="10%" // Position verticale en haut à gauche
-        textAnchor="start" // Aligne le texte à gauche
-        dominantBaseline="hanging" // Aligne le texte en haut
-        style={{ fontSize: "16px", fontWeight: "bold", fill: "#000" }} // Style du texte
+    <ResponsiveContainer width="100%" height={300}>
+      <RadialBarChart
+        cx="50%"
+        cy="50%"
+        innerRadius="70%"
+        outerRadius="90%"
+        barSize={10}
+        data={data}
+        startAngle={90} // Départ à gauche de l'axe vertical
+        endAngle={endAngle} // Angle calculé en fonction du score
       >
-        Score
-      </text>
-
-      <RadialBar
-        minAngle={15} // Angle minimum pour éviter une barre trop fine
-        background={{ fill: "#ddd" }} // Couleur de fond du cercle (gris clair)
-        clockWise={true} // Sens horaire
-        dataKey="value" // Utilisez la clé `value` pour les valeurs
-        fill="#8884d8" // Couleur de la barre correspondant à la valeur
-      />
-      {/* Texte au centre du cercle */}
-      <text
-        x="50%" // Position horizontale au centre
-        y="50%" // Position verticale au centre
-        textAnchor="middle" // Centre le texte horizontalement
-        dominantBaseline="middle" // Centre le texte verticalement
-        style={{ fontSize: "24px", fontWeight: "bold", fill: "#000" }} // Style du texte
-      >
-        {`${value}%`}
-      </text>
-      <text
-        x="50%" // Position horizontale au centre
-        y="60%" // Position légèrement en dessous du premier texte
-        textAnchor="middle" // Centre le texte horizontalement
-        dominantBaseline="middle" // Centre le texte verticalement
-        style={{ fontSize: "16px", fill: "#555" }} // Style du texte
-      >
-        de votre objectif
-      </text>
-    </RadialBarChart>
+        <RadialBar
+          minAngle={15}
+          clockWise
+          dataKey="value"
+          fill="#8884d8"
+          background={{ fill: "#eee" }}
+        />
+        {/* Texte au centre du graphique */}
+        <text
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          style={{ fontSize: "24px", fontWeight: "bold" }}
+        >
+          {`${value}%`}
+        </text>
+        <text
+          x="50%"
+          y="60%"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          style={{ fontSize: "16px", fill: "#555" }}
+        >
+          de votre objectif
+        </text>
+      </RadialBarChart>
+    </ResponsiveContainer>
   );
 };
 
