@@ -1,39 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './src/js/layouts/layout.jsx';
 import Profile from './src/js/pages/profile.jsx';
 import LoginPage from './src/js/pages/loginPage.jsx';
-
-/**
- * Récupère l'ID de l'utilisateur connecté depuis le localStorage.
- * @returns {string|null} - L'ID de l'utilisateur ou `null` s'il n'est pas connecté.
- */
-const getUserId = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user ? user.userId : null;
-};
+import useUserId from './src/hooks/useUserId';
 
 const AppRouter = () => {
-    const [userId, setUserId] = useState(getUserId());
+    const [userId, updateUserId] = useUserId();
 
     useEffect(() => {
         const handleStorageChange = () => {
-            const newUserId = getUserId();
+            const newUserId = localStorage.getItem('user');
             console.log("Mise à jour de userId dans Router :", newUserId);
-            setUserId(newUserId);
+            updateUserId(); // Utilisation de la fonction du hook
         };
 
         window.addEventListener('storage', handleStorageChange);
         return () => {
             window.removeEventListener('storage', handleStorageChange);
         };
-    }, []);
-
-    const updateUserId = () => {
-        const newUserId = getUserId();
-        console.log("Forçage de la mise à jour de userId :", newUserId);
-        setUserId(newUserId);
-    };
+    }, [updateUserId]);
 
     console.log("User ID dans Router :", userId);
 

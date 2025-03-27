@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { getUserInfo } from "../services/indexService";
+import React from "react";
 import UserName from "./userName";
+import useFetchUserInfo from "../../hooks/useFetchUserInfo";
 
 const MainHeader = ({ userId }) => {
-  const [userName, setUserName] = useState("");
+  const userInfo = useFetchUserInfo(userId);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userInfo = await getUserInfo(userId);
-        setUserName(userInfo.userInfo.firstName);
-      } catch (error) {
-        console.error("Error fetching user name:", error);
-      }
-    };
-
-    fetchData();
-  }, [userId]);
-
-  if (!userName) {
-    return <div>Loading...</div>;
+  if (!userInfo) {
+    return <div>Chargement des informations utilisateur...</div>;
   }
 
   return (
     <header>
       <div>
-        <UserName data={userName} />
+        <UserName data={userInfo.userInfo.firstName} />
         <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       </div>
     </header>

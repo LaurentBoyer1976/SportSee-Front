@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { getUserInfo } from "../services/indexService";
+import React from "react";
 import UserKeyData from "./userKeyData";
+import useKeyData from "../../hooks/useKeyData";
 
 // Import des icônes
 import CaloriesIcon from "../../assets/icons/calories-icon.svg";
@@ -9,73 +9,46 @@ import CarbsIcon from "../../assets/icons/carbs-icon.svg";
 import FatIcon from "../../assets/icons/fat-icon.svg";
 
 const KeyDataCard = ({ userId }) => {
-  const [keyData, setKeyData] = useState([]);
+  const keyData = useKeyData(userId);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userInfo = await getUserInfo(userId);
-       
-        // Vérifiez si keyData existe
-        if (!userInfo.keyData) {
-          console.error("keyData is missing or undefined");
-          return;
-        }
+  console.log("keyData:", keyData);
 
-        // Normalisez les clés pour correspondre au format attendu
-        const normalizedKeyData = {
-          calorieCount: userInfo.keyData.calories || userInfo.keyData.calorieCount,
-          proteinCount: userInfo.keyData.protein || userInfo.keyData.proteinCount,
-          carbohydrateCount: userInfo.keyData.carbs || userInfo.keyData.carbohydrateCount,
-          lipidCount: userInfo.keyData.fat || userInfo.keyData.lipidCount,
-        };
+  if (!keyData) {
+    return <div>Chargement des données clés...</div>;
+  }
 
-        // Itération sur les clés normalisées pour générer les données
-        const formattedKeyData = Object.entries(normalizedKeyData).map(([key, value]) => {
-          let icon, text, unit;
+  // Mappage des clés de l'API vers celles utilisées dans les icônes et labels
+  const mappedKeyData = {
+    calorieCount: keyData.calories,
+    proteinCount: keyData.protein,
+    carbohydrateCount: keyData.carbs,
+    lipidCount: keyData.fat,
+  };
 
-          // Associez les propriétés dynamiquement
-          switch (key) {
-            case "calorieCount":
-              icon = CaloriesIcon;
-              text = "Calories";
-              unit = "Kcal";
-              break;
-            case "proteinCount":
-              icon = ProteinIcon;
-              text = "Protéines";
-              unit = "g";
-              break;
-            case "carbohydrateCount":
-              icon = CarbsIcon;
-              text = "Glucides";
-              unit = "g";
-              break;
-            case "lipidCount":
-              icon = FatIcon;
-              text = "Lipides";
-              unit = "g";
-              break;
-            default:
-              console.warn(`Unknown key: ${key}`);
-              return null; // Ignorez les clés inconnues
-          }
+  const icons = {
+    calorieCount: CaloriesIcon,
+    proteinCount: ProteinIcon,
+    carbohydrateCount: CarbsIcon,
+    lipidCount: FatIcon,
+  };
 
-          return { icon, text, value, unit };
-        });
-        // Filtrez les valeurs nulles (au cas où une clé inconnue est ignorée)
-        setKeyData(formattedKeyData.filter((data) => data !== null));
-      } catch (error) {
-        console.error("Error fetching key data:", error);
-      }
-    };
+  const labels = {
+    calorieCount: "Calories",
+    proteinCount: "Protéines",
+    carbohydrateCount: "Glucides",
+    lipidCount: "Lipides",
+  };
 
-    fetchData();
-  }, [userId]);
   return (
     <div className="keyDataCard">
-      {keyData.map((data, index) => (
-        <UserKeyData key={index} icon={data.icon} text={data.text} value={data.value} unit={data.unit} />
+      {Object.entries(mappedKeyData).map(([key, value]) => (
+        <UserKeyData
+          key={key}
+          icon={icons[key]} // Associe l'icône correcte
+          text={labels[key]} // Utilise le texte correspondant
+          value={value}
+          unit={key === "calorieCount" ? "Kcal" : "g"}
+        />
       ))}
     </div>
   );
