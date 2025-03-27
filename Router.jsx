@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './src/js/layouts/layout.jsx';
 import Profile from './src/js/pages/profile.jsx';
 import LoginPage from './src/js/pages/loginPage.jsx';
+import ErrorPage from './src/js/pages/error.jsx';
 import useUserId from './src/hooks/useUserId';
 
 const AppRouter = () => {
@@ -30,6 +31,7 @@ const AppRouter = () => {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Profile userId={userId} />} />
                 </Route>
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </Router>
     );
