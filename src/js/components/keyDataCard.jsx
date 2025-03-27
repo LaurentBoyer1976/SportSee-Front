@@ -1,56 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import UserKeyData from './userKeyData.jsx';
-import KcalIcon from '../../assets/icons/calories-icon.svg';
-import ProteinIcon from '../../assets/icons/protein-icon.svg';
-import FatIcon from '../../assets/icons/fat-icon.svg';
-import CarbsIcon from '../../assets/icons/carbs-icon.svg';
+import React from "react";
+import UserKeyData from "./userKeyData";
+import useKeyData from "../../hooks/useKeyData";
 
-// Les icônes associées aux types de données
-const keyDataIcons = {
-  calories: KcalIcon,
-  protein: ProteinIcon,
-  carbs: CarbsIcon,
-  fat: FatIcon,
-};
+// Import des icônes
+import CaloriesIcon from "../../assets/icons/calories-icon.svg";
+import ProteinIcon from "../../assets/icons/protein-icon.svg";
+import CarbsIcon from "../../assets/icons/carbs-icon.svg";
+import FatIcon from "../../assets/icons/fat-icon.svg";
 
 const KeyDataCard = ({ userId }) => {
-  const [keyData, setKeyData] = useState([]);
+  const keyData = useKeyData(userId);
 
-  // Simuler une récupération de données utilisateur
-  useEffect(() => {
-    const fetchKeyData = async () => {
-      // Remplacez cette partie par un appel API 
-      const response = await fetch(`/api/user/${userId}/key-data`);
-      const data = await response.json();
+  console.log("keyData:", keyData);
 
-      // Exemple de données reçues
-      const formattedData = [
-        { icon: keyDataIcons.calories, text: 'Calories', value: data.calories, unit: 'Kcal' },
-        { icon: keyDataIcons.protein, text: 'Protéines', value: data.protein, unit: 'g' },
-        { icon: keyDataIcons.carbs, text: 'Glucides', value: data.carbs, unit: 'g' },
-        { icon: keyDataIcons.fat, text: 'Lipides', value: data.fat, unit: 'g' },
-      ];
+  if (!keyData) {
+    return <div>Chargement des données clés...</div>;
+  }
 
-      setKeyData(formattedData);
-    };
+  // Mappage des clés de l'API vers celles utilisées dans les icônes et labels
+  const mappedKeyData = {
+    calorieCount: keyData.calories,
+    proteinCount: keyData.protein,
+    carbohydrateCount: keyData.carbs,
+    lipidCount: keyData.fat,
+  };
 
-    fetchKeyData();
-  }, [userId]);
+  const icons = {
+    calorieCount: CaloriesIcon,
+    proteinCount: ProteinIcon,
+    carbohydrateCount: CarbsIcon,
+    lipidCount: FatIcon,
+  };
+
+  const labels = {
+    calorieCount: "Calories",
+    proteinCount: "Protéines",
+    carbohydrateCount: "Glucides",
+    lipidCount: "Lipides",
+  };
 
   return (
-    <figure className="keyDataCard">
-      <div className="keyDataCard__container">
-        {keyData.map((data, index) => (
-          <UserKeyData
-            key={index}
-            icon={data.icon}
-            text={data.text}
-            value={data.value}
-            unit={data.unit}
-          />
-        ))}
-      </div>
-    </figure>
+    <div className="keyDataCard">
+      {Object.entries(mappedKeyData).map(([key, value]) => (
+        <UserKeyData
+          key={key}
+          icon={icons[key]} // Associe l'icône correcte
+          text={labels[key]} // Utilise le texte correspondant
+          value={value}
+          unit={key === "calorieCount" ? "Kcal" : "g"}
+        />
+      ))}
+    </div>
   );
 };
 

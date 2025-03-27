@@ -1,21 +1,22 @@
-import React from 'react';
-import MainHeader from '../components/mainHeader.jsx';
-import ChartsLayout from '../layouts/chartsLayout.jsx';
-import KeyDataCard from '../components/keyDataCard.jsx';
+import React from "react";
+import MainHeader from "./../components/mainHeader.jsx";
+import ChartsLayout from "./../layouts/chartsLayout.jsx";
+import KeyDataCard from "./../components/keyDataCard.jsx";
 
+const Profile = ({ userId }) => {
+  console.log("Props reçues dans Profile :", { userId });
 
-const Profile = () => {
-    return (
-        <article className="profile">
-            <MainHeader />
-            <section className="profileContainer">
-                    <ChartsLayout />
-                <article className='keyData__Container'>
-                    <KeyDataCard />
-                </article>
-            </section>
+  if (!userId) {
+    return <div>User ID is missing</div>;
+  }
 
-        </article>  
-    );
-}
+  return (
+    <div className="profile">
+      <MainHeader userId={userId} />
+      <ChartsLayout userId={userId} />
+      <KeyDataCard userId={userId} />
+    </div>
+  );
+};
+
 export default Profile;
