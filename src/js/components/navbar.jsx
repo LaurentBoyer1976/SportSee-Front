@@ -11,11 +11,10 @@ const navIcons = [lotus, swim, biking, dumbbell]; // Ordre : lotus, swim, biking
 
 /**
  * @description NavBar component
- * @param {Function} onLogin - Fonction pour gérer la connexion
  * @param {boolean} isAside - Indique si le NavBar est utilisé dans l'aside
  * @returns {JSX.Element} NavBar component
  */
-const NavBar = ({ onLogin, isAside }) => {
+const NavBar = ({ isAside }) => {
   return (
     <nav className="navBar">
       <ul className="navList">
@@ -24,8 +23,7 @@ const NavBar = ({ onLogin, isAside }) => {
             <NavLink
               text={label}
               icon={navIcons[index]}
-              isAside={isAside} // Passe la prop isAside
-              onLogin={onLogin} // Passe la fonction de connexion
+              isAside={isAside} // Passe la prop isAside              
             />
           </li>
         ))}

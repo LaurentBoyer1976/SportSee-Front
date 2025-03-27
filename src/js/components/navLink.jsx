@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
  */
 const NavLink = ({ text, icon, isAside }) => {
   return (
+    //TODO : retirer les Links inutiles 
     <>
       {text === "Profil" && !isAside ? (
         // Lien vers la page profil
