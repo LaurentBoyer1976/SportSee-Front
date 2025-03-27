@@ -1,3 +1,4 @@
+import React from "react";
 import UserName from "./userName";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
 import PropTypes from "prop-types";

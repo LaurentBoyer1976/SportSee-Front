@@ -36,9 +36,6 @@ export const formatUserInfo = (data) =>
       },
     };
 
-    // Ajout de logs pour vérifier les données formatées
-    console.log("formatUserInfo - formatted data:", formattedData);
-
     return formattedData;
   });
 

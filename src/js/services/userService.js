@@ -13,9 +13,6 @@ const fetchApiData = async (endpoint) => {
     }
     const data = await response.json();
 
-    // Ajout de logs pour vérifier les données brutes
-    console.log(`fetchApiData - ${endpoint} - raw data:`, data);
-
     return data;
   } catch (error) {
     console.error(`Error fetching data from ${endpoint}:`, error);
