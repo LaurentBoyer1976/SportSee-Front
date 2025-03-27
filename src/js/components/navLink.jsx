@@ -11,33 +11,13 @@ import { Link } from "react-router-dom";
  */
 const NavLink = ({ text, icon, isAside }) => {
   return (
-    //TODO : retirer les Links inutiles 
-    <>
-      {text === "Profil" && !isAside ? (
-        // Lien vers la page profil
-        <Link to="/" className="navList__item--link">
-          <span>{text}</span>
-        </Link>
-      ) : text === "Déconnexion" && !isAside ? (
-        // Lien pour la déconnexion
-        <Link
-          to="/login"
-          className="navList__item--link"
-          onClick={() => localStorage.removeItem("user")} // Supprime les données utilisateur
-        >
-          <span>{text}</span>
-        </Link>
+    <a className="navList__item--link" href="#">
+      {isAside ? (
+        icon && <img src={icon} alt={text} className="navList__item--icon" />
       ) : (
-        // Icône ou texte pour les autres cas (par exemple dans l'aside)
-        <a className="navList__item--link" href="#">
-          {isAside ? (
-            icon && <img src={icon} alt={text} className="navList__item--icon" />
-          ) : (
-            <span>{text}</span>
-          )}
-        </a>
+        <span>{text}</span>
       )}
-    </>
+    </a>
   );
 };
 
