@@ -1,11 +1,7 @@
 import React from 'react';
-import { authenticateUser } from '../services/authentificationService'; // Assurez-vous que ce fichier existe
-import { useNavigate } from 'react-router-dom'; // Si vous utilisez React Router v5
+import { authenticateUser } from '../services/authentificationService';
+import { useNavigate } from 'react-router-dom';
 
-/**
- * @description Login component
- * @returns {JSX.Element} Login component
- */
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -14,6 +10,19 @@ class Login extends React.Component {
             userId: '',
             error: ''
         };
+    }
+
+    componentDidMount() {
+        // Vide le localStorage et réinitialise l'état
+        localStorage.clear();
+        console.log('LocalStorage après déconnexion :', localStorage.getItem('user')); // Vérifie que le localStorage est vide
+        this.setState({
+            firstName: '',
+            userId: '',
+            error: ''
+        }, () => {
+            console.log('State après déconnexion :', this.state); // Vérifie que le state est réinitialisé
+        });
     }
 
     myChangeHandler = (event) => {
@@ -25,16 +34,26 @@ class Login extends React.Component {
         event.preventDefault();
         const { firstName, userId } = this.state;
 
+        console.log('State avant tentative de connexion :', this.state); // Vérifie les valeurs du state avant la connexion
+
         try {
             const isAuthenticated = await authenticateUser(firstName, Number(userId));
             if (isAuthenticated) {
-                localStorage.setItem('user', JSON.stringify({ firstName, userId }));
+                localStorage.setItem('user', JSON.stringify({ firstName, userId })); // Stocke l'utilisateur connecté
+                console.log('LocalStorage après connexion :', localStorage.getItem('user')); // Vérifie que le localStorage est mis à jour
+
+                // Appeler onLogin pour synchroniser l'état dans AppRouter
+                if (this.props.onLogin) {
+                    this.props.onLogin();
+                }
+
                 this.props.navigate('/'); // Redirige vers la page principale
             } else {
                 this.setState({ error: 'Prénom ou ID incorrect.' });
+                console.log('Erreur de connexion : Prénom ou ID incorrect.');
             }
         } catch (error) {
-            console.error('Erreur lors de la connexion:', error);
+            console.error('Erreur lors de la connexion :', error);
             this.setState({ error: 'Une erreur est survenue. Veuillez réessayer.' });
         }
     };

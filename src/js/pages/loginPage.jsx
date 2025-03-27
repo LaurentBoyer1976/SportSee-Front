@@ -5,11 +5,11 @@ import LoginWithNavigate from '../components/login';
  * @description Login page
  * @returns {JSX.Element} Login page
  */
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
     return (
         <div className="loginPage">
             <h1>Connexion</h1>
-            <LoginWithNavigate />
+            <LoginWithNavigate onLogin={onLogin} />
         </div>
     );
 };

@@ -13,8 +13,8 @@ const HomeLink = () => {
    * Gère la déconnexion de l'utilisateur.
    */
   const handleLogout = () => {
-    localStorage.removeItem("user"); // Supprime les données utilisateur
-    navigate("/login"); // Redirige vers la page de connexion
+    localStorage.clear(); // Vide complètement le localStorage
+    navigate("/login", { replace: true }); // Redirige vers la page de connexion
   };
 
   return (

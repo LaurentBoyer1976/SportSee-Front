@@ -4,9 +4,12 @@ import ChartsLayout from "./../layouts/chartsLayout.jsx";
 import KeyDataCard from "./../components/keyDataCard.jsx";
 
 const Profile = ({ userId }) => {
+  console.log("Props reçues dans Profile :", { userId });
+
   if (!userId) {
     return <div>User ID is missing</div>;
   }
+
   return (
     <div className="profile">
       <MainHeader userId={userId} />
