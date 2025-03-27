@@ -4,6 +4,12 @@ import ChartsLayout from "./../layouts/chartsLayout.jsx";
 import KeyDataCard from "./../components/keyDataCard.jsx";
 import PropTypes from "prop-types";
 
+/**
+ * @description Profile
+ * @param {string} userId - ID de l'utilisateur.
+ * @returns {JSX.Element}
+ */
+
 const Profile = ({ userId }) => {
 
   if (!userId) {

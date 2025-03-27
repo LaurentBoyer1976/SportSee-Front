@@ -3,7 +3,7 @@ import Header from "../../js/components/header.jsx";
 import Aside from "../../js/components/aside.jsx";
 
 /**
- * Vérifie si l'utilisateur est connecté.
+ * @description Vérifie si l'utilisateur est connecté
  * @returns {boolean} - Retourne `true` si l'utilisateur est connecté.
  */
 const isAuthenticated = () => {

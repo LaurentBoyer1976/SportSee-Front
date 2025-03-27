@@ -1,7 +1,7 @@
 const BASE_URL = "http://localhost:3000/user";
 
 /**
- * Authentifie un utilisateur avec son prénom et son ID.
+ * @description Authentifie un utilisateur avec son prénom et son ID.
  * @param {string} firstName - Prénom de l'utilisateur.
  * @param {number} userId - ID de l'utilisateur.
  * @returns {Promise<boolean>} - Retourne `true` si l'utilisateur est authentifié, sinon `false`.

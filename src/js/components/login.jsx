@@ -3,6 +3,14 @@ import { authenticateUser } from "../services/authentificationService";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
+
+/**
+ * @description Login component
+ * @param {Object} props - The props object
+ * @param {Function} props.onLogin - The onLogin function
+ * @param {Function} props.navigate - The navigate function
+ * @returns {JSX.Element} - Login component
+ */
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -81,6 +89,13 @@ class Login extends React.Component {
     );
   }
 }
+
+/**
+ * @description Login component with navigate
+ * @param {Object} props - The props object
+ * @param {Function} props.onLogin - The onLogin function
+ * @returns {JSX.Element} - Login component with navigate
+ */
 
 function LoginWithNavigate(props) {
   const navigate = useNavigate();

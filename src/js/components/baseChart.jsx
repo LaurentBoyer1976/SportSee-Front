@@ -12,7 +12,7 @@ import {
 import PropTypes from "prop-types";
 
 /**
- * Composant générique pour afficher différents types de graphiques.
+ * @description Composant générique pour afficher différents types de graphiques.
  * @param {string} type - Type de graphique ("bar" ou "line").
  * @param {Array} data - Données à afficher.
  * @param {Object} config - Configuration spécifique au graphique.

@@ -2,9 +2,11 @@ const BASE_URL = "http://localhost:3000/user";
 
 /**
  * Fonction générique pour effectuer un appel API.
+ * @description Cette fonction est utilisée par les fonctions de récupération de données
  * @param {string} endpoint - Endpoint de l'API.
  * @returns {Promise<Object>} - Données brutes de l'API.
  */
+ 
 const fetchApiData = async (endpoint) => {
   try {
     const response = await fetch(`${BASE_URL}/${endpoint}`);

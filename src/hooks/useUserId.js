@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Récupère l'ID de l'utilisateur connecté depuis le localStorage.
+ * @description Récupère l'ID de l'utilisateur connecté depuis le localStorage.
  * @returns {string|null} - L'ID de l'utilisateur ou `null` s'il n'est pas connecté.
  */
 const getUserId = () => {

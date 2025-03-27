@@ -1,4 +1,3 @@
-
 import BarChart from "./../components/barChart.jsx";
 import LineChart from "./../components/lineChart.jsx";
 import RadarChart from "./../components/radarChart.jsx";
@@ -7,8 +6,13 @@ import useFetchUserActivity from "../../hooks/useFetchUserActivity";
 import useFetchUserAverageSessions from "../../hooks/useFetchUserAverageSessions";
 import useFetchUserPerformance from "../../hooks/useFetchUserPerformance";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
-
 import PropTypes from "prop-types";
+
+/**
+ * @description Layout des graphiques
+ * @param {string} userId - ID de l'utilisateur.
+ * @returns {JSX.Element} Layout des graphiques 
+ */
 
 const ChartsLayout = ({ userId }) => {
   const activity = useFetchUserActivity(userId);

@@ -15,6 +15,11 @@ import {
 } from "./formatService";
 
 // Export des fonctions combinées
+/**
+ * @description Récupère les informations d'un utilisateur
+ * @param {number} userId - ID de l'utilisateur
+ * @returns   {Object} - Informations de l'utilisateur
+ */
 export const getUserInfo = async (userId) => {
   const rawData = await fetchUserInfo(userId);
   if (!rawData || !rawData.data) {
@@ -22,6 +27,12 @@ export const getUserInfo = async (userId) => {
   }
   return formatUserInfo(rawData.data);
 };
+
+/**
+ * @description Récupère l'activité quotidienne d'un utilisateur
+ * @param {number} userId - ID de l'utilisateur
+ * @returns {Object} - Activité quotidienne
+ */
 
 export const getUserActivity = async (userId) => {
   const rawData = await fetchUserActivity(userId);
@@ -31,6 +42,12 @@ export const getUserActivity = async (userId) => {
   return formatUserActivity(rawData.data);
 };
 
+/**
+ * @description Récupère les sessions moyennes d'un utilisateur
+ * @param {number} userId - ID de l'utilisateur
+ * @returns {Object} - Sessions moyennes
+ */
+
 export const getUserAverageSessions = async (userId) => {
   const rawData = await fetchUserAverageSessions(userId);
   if (!rawData || !rawData.data) {
@@ -38,6 +55,12 @@ export const getUserAverageSessions = async (userId) => {
   }
   return formatUserAverageSessions(rawData.data);
 };
+
+/**
+ * @description Récupère les performances d'un utilisateur
+ * @param {number} userId - ID de l'utilisateur
+ * @returns {Object} - Performances de l'utilisateur
+ */
 
 export const getUserPerformance = async (userId) => {
   const rawData = await fetchUserPerformance(userId);

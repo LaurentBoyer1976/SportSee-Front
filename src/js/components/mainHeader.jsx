@@ -3,6 +3,14 @@ import UserName from "./userName";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
 import PropTypes from "prop-types";
 
+
+
+/**
+ * @description MainHeader component
+ * @param {string} userId - User ID
+ * @returns {JSX.Element} - MainHeader component
+ */
+
 const MainHeader = ({ userId }) => {
   const userInfo = useFetchUserInfo(userId);
 

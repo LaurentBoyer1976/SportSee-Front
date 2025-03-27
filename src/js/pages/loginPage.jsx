@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 /**
  * @description Login page
+ * @param {object} props - Component props
+ * @param {function} props.onLogin - Login function
  * @returns {JSX.Element} Login page
  */
 const LoginPage = ({ onLogin }) => {

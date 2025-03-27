@@ -8,6 +8,12 @@ import ProteinIcon from "../../assets/icons/protein-icon.svg";
 import CarbsIcon from "../../assets/icons/carbs-icon.svg";
 import FatIcon from "../../assets/icons/fat-icon.svg";
 
+/**
+ * @description Composant pour afficher les données clés de l'utilisateur
+ * @param {number} userId - ID de l'utilisateur
+ * @returns {JSX.Element} - Composant UserKeyData
+ */
+
 const KeyDataCard = ({ userId }) => {
   const keyData = useKeyData(userId);
 

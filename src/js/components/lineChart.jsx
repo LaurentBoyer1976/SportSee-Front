@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 /**
  * @description Line chart component
  * @param {Object} data - Line chart data
- * @returns 
+ * @returns {JSX.Element} - Line chart component
  */
 const LineChart = ({ data }) => {
   return (

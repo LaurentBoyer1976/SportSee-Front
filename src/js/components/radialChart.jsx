@@ -3,7 +3,7 @@ import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 
 /**
- * Composant RadialChart pour afficher un graphique radial.
+ * @description Composant RadialChart pour afficher un graphique radial.
  * @param {Array} data - Données à afficher (doit contenir un objet avec une clé `value`).
  * @returns {JSX.Element} - Composant graphique radial.
  */

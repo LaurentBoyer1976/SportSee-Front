@@ -1,6 +1,12 @@
 import BaseChart from "./baseChart";
 import PropTypes from "prop-types";
 
+/**
+ * @description Composant pour afficher un graphique en barres.
+ * @param {Array} data - Données à aff
+ * @returns {JSX.Element} - Composant graphique en barres.
+ */
+
 const BarChart = ({ data }) => {
   return (
     <BaseChart
