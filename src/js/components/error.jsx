@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 /**
  * @description Composant d'erreur générique
@@ -13,6 +13,10 @@ const Error = ({ message = "Une erreur est survenue." }) => {
       <p>{message}</p>
     </div>
   );
+};
+
+Error.propTypes = {
+  message: PropTypes.string,
 };
 
 export default Error;

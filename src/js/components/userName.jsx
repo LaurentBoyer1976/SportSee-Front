@@ -1,5 +1,4 @@
-import React from "react";
-
+import PropTypes from "prop-types";
 
 /**
  * @description User name component
@@ -8,6 +7,10 @@ import React from "react";
  */
 const UserName = ({data})=> { 
   return <h1>Bonjour, {data}!</h1>;
+};
+
+UserName.propTypes = {
+  data: PropTypes.string.isRequired,
 };
 
 export default UserName;

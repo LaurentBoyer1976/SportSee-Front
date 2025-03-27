@@ -1,4 +1,12 @@
-import React from 'react';
+/**
+ * @description Composant pour afficher les données clés de l'utilisateur.
+ * @param {Object} param0 - Les données à afficher.
+ * @param {string} param0.icon - L'icône à afficher.
+ * @param {string} param0.text - Le texte à afficher.
+ * @param {number} param0.value - La valeur à afficher.
+ * @param {string} param0.unit - L'unité de la valeur à afficher.
+ * @returns {JSX.Element} Composant UserKeyData
+ */
 
 const UserKeyData = ({ icon, text, value, unit }) => {
   return (
@@ -10,6 +18,13 @@ const UserKeyData = ({ icon, text, value, unit }) => {
       </div>
     </figcaption>
   );
+};
+
+UserKeyData.propTypes = {
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
 };
 
 export default UserKeyData;

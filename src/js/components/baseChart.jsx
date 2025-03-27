@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BarChart as RechartsBarChart,
   LineChart as RechartsLineChart,
@@ -10,6 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import PropTypes from "prop-types";
 
 /**
  * Composant générique pour afficher différents types de graphiques.
@@ -49,6 +49,15 @@ const BaseChart = ({ type, data, config }) => {
       ) : null}
     </ResponsiveContainer>
   );
+};
+
+BaseChart.propTypes = {
+  type: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
+  config: PropTypes.shape({
+    bars: PropTypes.array,
+    lines: PropTypes.array,
+  }).isRequired,
 };
 
 export default BaseChart;

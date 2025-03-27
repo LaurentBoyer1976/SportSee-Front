@@ -1,4 +1,4 @@
-import React from "react";
+
 import BarChart from "./../components/barChart.jsx";
 import LineChart from "./../components/lineChart.jsx";
 import RadarChart from "./../components/radarChart.jsx";
@@ -8,20 +8,17 @@ import useFetchUserAverageSessions from "../../hooks/useFetchUserAverageSessions
 import useFetchUserPerformance from "../../hooks/useFetchUserPerformance";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
 
+import PropTypes from "prop-types";
+
 const ChartsLayout = ({ userId }) => {
   const activity = useFetchUserActivity(userId);
   const averageSessions = useFetchUserAverageSessions(userId);
   const performance = useFetchUserPerformance(userId);
   const userInfo = useFetchUserInfo(userId); // Récupère les informations utilisateur, y compris le score
 
-  // Ajout de logs pour déboguer les données
-  console.log("Activity data:", activity);
-  console.log("Average sessions data:", averageSessions);
-  console.log("Performance data:", performance);
-  console.log("User info data:", userInfo);
+  
 
-  if (!activity || !averageSessions || !performance || !userInfo || userInfo.score == null) {
-    console.error("ChartsLayout: Les données sont manquantes ou invalides.");
+  if (!activity || !averageSessions || !performance || !userInfo || userInfo.score === null) { 
     return <div>Chargement des graphiques...</div>;
   }
 
@@ -41,5 +38,11 @@ const ChartsLayout = ({ userId }) => {
     </div>
   );
 };
+
+ChartsLayout.propTypes = {
+  userId: PropTypes.string.isRequired,
+};
+
+
 
 export default ChartsLayout;

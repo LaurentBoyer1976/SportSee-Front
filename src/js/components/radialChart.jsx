@@ -1,5 +1,6 @@
-import React from "react";
+
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
+import PropTypes from "prop-types";
 
 /**
  * Composant RadialChart pour afficher un graphique radial.
@@ -7,8 +8,8 @@ import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
  * @returns {JSX.Element} - Composant graphique radial.
  */
 const RadialChart = ({ data }) => {
-  if (!data || data.length === 0 || data[0].value == null || isNaN(data[0].value)) {
-    console.error("RadialChart: Les données sont manquantes ou invalides.", data);
+  if (!data || data.length === 0 || data[0].value === null || isNaN(data[0].value)) {
+
     return <div>Aucune donnée disponible</div>;
   }
 
@@ -58,6 +59,13 @@ const RadialChart = ({ data }) => {
       </RadialBarChart>
     </ResponsiveContainer>
   );
+};
+RadialChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default RadialChart;

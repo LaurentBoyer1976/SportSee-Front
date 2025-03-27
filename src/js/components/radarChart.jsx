@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   RadarChart as RechartsRadarChart,
   PolarGrid,
@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
   PolarRadiusAxis,
 } from "recharts";
+import PropTypes from "prop-types";
 
 /**
  * @description Composant RadarChart
@@ -31,6 +32,14 @@ const RadarChart = ({ data }) => {
       </RechartsRadarChart>
     </ResponsiveContainer>
   );
+};
+RadarChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number.isRequired,
+      kindName: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default RadarChart;

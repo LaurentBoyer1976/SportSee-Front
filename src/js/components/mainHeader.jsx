@@ -1,6 +1,6 @@
-import React from "react";
 import UserName from "./userName";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
+import PropTypes from "prop-types";
 
 const MainHeader = ({ userId }) => {
   const userInfo = useFetchUserInfo(userId);
@@ -17,6 +17,9 @@ const MainHeader = ({ userId }) => {
       </div>
     </header>
   );
+};
+MainHeader.propTypes = {
+  userId: PropTypes.string.isRequired,
 };
 
 export default MainHeader;

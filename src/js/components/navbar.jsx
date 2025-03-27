@@ -1,6 +1,6 @@
-import React from "react";
 import NavLink from "./navLink.jsx";
 import biking from "./../../assets/icons/biking.svg";
+import PropTypes from "prop-types";
 import dumbbell from "./../../assets/icons/dumbell.svg";
 import lotus from "./../../assets/icons/lotusposition.svg";
 import swim from "./../../assets/icons/swim.svg";
@@ -30,6 +30,9 @@ const NavBar = ({ isAside }) => {
       </ul>
     </nav>
   );
+};
+NavBar.propTypes = {
+  isAside: PropTypes.bool,
 };
 
 export default NavBar;

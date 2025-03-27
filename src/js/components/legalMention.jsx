@@ -1,6 +1,3 @@
-import React from 'react';
-
-
 /**
  * @description LegalMention component
  * @param {void}
@@ -8,11 +5,11 @@ import React from 'react';
  */
 
 const LegalMention = () => {
-    return (
-        <div className="legalMention">
-            <p className='legalMention__text'>Copyright, SportSee 2020</p>
-        </div>
-    )       
+  return (
+    <div className="legalMention">
+      <p className='legalMention__text'>Copyright, SportSee 2020</p>
+    </div>
+  );       
 };
 
 export default LegalMention;

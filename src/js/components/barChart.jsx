@@ -1,5 +1,5 @@
-import React from "react";
 import BaseChart from "./baseChart";
+import PropTypes from "prop-types";
 
 const BarChart = ({ data }) => {
   return (
@@ -14,6 +14,10 @@ const BarChart = ({ data }) => {
       }}
     />
   );
+};
+
+BarChart.propTypes = {
+  data: PropTypes.array.isRequired,
 };
 
 export default BarChart;

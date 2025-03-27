@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import UserKeyData from "./userKeyData";
 import useKeyData from "../../hooks/useKeyData";
 
@@ -10,8 +10,6 @@ import FatIcon from "../../assets/icons/fat-icon.svg";
 
 const KeyDataCard = ({ userId }) => {
   const keyData = useKeyData(userId);
-
-  console.log("keyData:", keyData);
 
   if (!keyData) {
     return <div>Chargement des données clés...</div>;
@@ -52,6 +50,10 @@ const KeyDataCard = ({ userId }) => {
       ))}
     </div>
   );
+};
+
+KeyDataCard.propTypes = {
+  userId: PropTypes.number.isRequired,
 };
 
 export default KeyDataCard;

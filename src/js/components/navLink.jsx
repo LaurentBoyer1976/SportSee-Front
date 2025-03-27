@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import PropTypes from "prop-types";
 
 /**
  * @description NavLink component
@@ -19,6 +19,12 @@ const NavLink = ({ text, icon, isAside }) => {
       )}
     </a>
   );
+};
+
+NavLink.propTypes = {
+  text: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  isAside: PropTypes.bool,
 };
 
 export default NavLink;

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import NavBar from "./navbar.jsx";
 import HomeLink from "./homeLink.jsx";
 

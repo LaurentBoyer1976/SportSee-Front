@@ -1,6 +1,11 @@
-import React from "react";
+// Info : Code for LineChart component
 import BaseChart from "./baseChart";
-
+import PropTypes from "prop-types";
+/**
+ * @description Line chart component
+ * @param {Object} data - Line chart data
+ * @returns 
+ */
 const LineChart = ({ data }) => {
   return (
     <BaseChart
@@ -11,6 +16,9 @@ const LineChart = ({ data }) => {
       }}
     />
   );
+};
+LineChart.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default LineChart;
