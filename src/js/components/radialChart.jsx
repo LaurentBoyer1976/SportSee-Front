@@ -1,4 +1,3 @@
-
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 
@@ -8,8 +7,12 @@ import PropTypes from "prop-types";
  * @returns {JSX.Element} - Composant graphique radial.
  */
 const RadialChart = ({ data }) => {
-  if (!data || data.length === 0 || data[0].value === null || isNaN(data[0].value)) {
-
+  if (
+    !data ||
+    data.length === 0 ||
+    data[0].value === null ||
+    isNaN(data[0].value)
+  ) {
     return <div>Aucune donnée disponible</div>;
   }
 
@@ -64,7 +67,7 @@ RadialChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.number.isRequired,
-    })
+    }),
   ).isRequired,
 };
 

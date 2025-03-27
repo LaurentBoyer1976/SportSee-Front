@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 /**
  * Hook générique pour récupérer des données via une API.
@@ -8,29 +8,34 @@ import { useState, useEffect } from 'react';
  * @returns {any} - Les données formatées ou null en cas d'erreur.
  */
 const useFetchData = (url, formatter, dependencies = []) => {
-    const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
-    useEffect(() => {
-        if (!url) return;
+  useEffect(() => {
+    if (!url) return;
 
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Erreur HTTP : ${response.status}`);
-                }
-                const rawData = await response.json();
-                const formattedData = formatter ? formatter(rawData.data) : rawData.data;
-                setData(formattedData);
-            } catch (error) {
-                console.error(`Erreur lors de la récupération des données depuis ${url} :`, error);
-            }
-        };
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP : ${response.status}`);
+        }
+        const rawData = await response.json();
+        const formattedData = formatter
+          ? formatter(rawData.data)
+          : rawData.data;
+        setData(formattedData);
+      } catch (error) {
+        console.error(
+          `Erreur lors de la récupération des données depuis ${url} :`,
+          error,
+        );
+      }
+    };
 
-        fetchData();
-    }, dependencies);
+    fetchData();
+  }, dependencies);
 
-    return data;
+  return data;
 };
 
 export default useFetchData;

@@ -1,0 +1,36 @@
+// Info : Fichiers des variables et mixins de l'application
+
+//Note: Import de la police
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Variables
+$color-primary: #ff0000;
+
+// Couleurs supplémentaires
+$color-black: #000000;
+$color-white: #ffffff;
+$color-gray-light: #fbfbfb;
+$color-gray-dark: #282d30;
+
+//Font-family
+$fontFamily: 'Roboto, sans-serif';
+
+// Tailles de police
+$mainFontSize16: 16px;
+$fontSize48: 3rem; // 48px / 16px
+$fontSize36: 2.25rem; // 36px / 16px
+$fontSize24: 1.5rem; // 24px / 16px
+$fontSize18: 1.125rem; // 18px / 16px
+$fontSize14: 0.875rem; // 14px / 16px
+
+// Poids de police
+$fontW700: 700;
+$fontW400: 400;
+$fontW300: 300;
+
+// text-transform
+@mixin textVertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}

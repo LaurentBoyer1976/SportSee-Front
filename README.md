@@ -49,6 +49,7 @@ L'application sera disponible à l'adresse [http://localhost:5173](http://localh
 Les fichiers Sass sont compilés en CSS. Pour compiler manuellement ou surveiller les changements :
 
 - **Compilation unique :**
+
   ```bash
   npm run build:css
   ```
@@ -69,6 +70,7 @@ npm run test
 ## Linting et formatage
 
 - **Linting avec ESLint :**
+
   ```bash
   npm run lint
   ```

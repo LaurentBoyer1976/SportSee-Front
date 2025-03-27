@@ -3,8 +3,6 @@ import UserName from "./userName";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
 import PropTypes from "prop-types";
 
-
-
 /**
  * @description MainHeader component
  * @param {string} userId - User ID

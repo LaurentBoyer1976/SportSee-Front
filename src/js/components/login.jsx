@@ -3,7 +3,6 @@ import { authenticateUser } from "../services/authentificationService";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-
 /**
  * @description Login component
  * @param {Object} props - The props object
@@ -17,19 +16,21 @@ class Login extends React.Component {
     this.state = {
       firstName: "",
       userId: "",
-      error: ""
+      error: "",
     };
   }
 
   componentDidMount() {
     // Vide le localStorage et réinitialise l'état
     localStorage.clear();
-    this.setState({
-      firstName: "",
-      userId: "",
-      error: ""
-    }, () => {
-    });
+    this.setState(
+      {
+        firstName: "",
+        userId: "",
+        error: "",
+      },
+      () => {},
+    );
   }
 
   myChangeHandler = (event) => {

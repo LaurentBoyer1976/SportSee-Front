@@ -31,7 +31,7 @@ describe("MainHeader Component", () => {
 
     render(<MainHeader userId={12} />);
     expect(
-      screen.getByText(/Chargement des informations utilisateur.../i)
+      screen.getByText(/Chargement des informations utilisateur.../i),
     ).toBeInTheDocument();
   });
 });

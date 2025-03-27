@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 /**
  * @description Composant pour afficher les données clés de l'utilisateur.
  * @param {Object} param0 - Les données à afficher.
@@ -13,7 +14,10 @@ const UserKeyData = ({ icon, text, value, unit }) => {
     <figcaption className="userKeyData">
       <img src={icon} alt={`${text} icon`} className="userKeyData__icon" />
       <div className="userKeyData__info">
-        <span className="userKeyData__value">{value}{unit}</span>
+        <span className="userKeyData__value">
+          {value}
+          {unit}
+        </span>
         <span className="userKeyData__text">{text}</span>
       </div>
     </figcaption>

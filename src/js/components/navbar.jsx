@@ -23,7 +23,7 @@ const NavBar = ({ isAside }) => {
             <NavLink
               text={label}
               icon={navIcons[index]}
-              isAside={isAside} // Passe la prop isAside              
+              isAside={isAside} // Passe la prop isAside
             />
           </li>
         ))}

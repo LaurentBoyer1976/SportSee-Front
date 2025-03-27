@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
  * @param {Object} data - User name data
  * @returns {JSX.Element} User name component
  */
-const UserName = ({data})=> { 
+const UserName = ({ data }) => {
   return <h1>Bonjour, {data}!</h1>;
 };
 

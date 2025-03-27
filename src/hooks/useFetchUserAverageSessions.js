@@ -1,5 +1,5 @@
-import useFetchData from './useFetchData';
-import { formatUserAverageSessions } from '../js/services/formatService';
+import useFetchData from "./useFetchData";
+import { formatUserAverageSessions } from "../js/services/formatService";
 
 /**
  * @description Hook to fetch user average sessions
@@ -8,8 +8,8 @@ import { formatUserAverageSessions } from '../js/services/formatService';
  */
 
 const useFetchUserAverageSessions = (userId) => {
-    const url = userId ? `/api/user/${userId}/average-sessions` : null;
-    return useFetchData(url, formatUserAverageSessions, [userId]);
+  const url = userId ? `/api/user/${userId}/average-sessions` : null;
+  return useFetchData(url, formatUserAverageSessions, [userId]);
 };
 
 export default useFetchUserAverageSessions;

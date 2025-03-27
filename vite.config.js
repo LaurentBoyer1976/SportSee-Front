@@ -1,15 +1,22 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Charge automatiquement vos variables/mixins SCSS dans tous les fichiers
+        additionalData: `@use "src/styles/Var_Mixins.scss" as *;`,
+      },
+    },
+  },
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
+      "/api": {
+        target: "http://localhost:3000",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
@@ -17,7 +24,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'], // Exemple : séparer les dépendances principales
+          vendor: ["react", "react-dom"], // Séparer les dépendances principales
         },
       },
     },

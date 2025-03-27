@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 /**
  * @description Hook to navigate to login and profile pages
@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router-dom';
  */
 
 const useNavigation = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const goToLogin = () => navigate('/login');
-    const goToProfile = () => navigate('/');
+  const goToLogin = () => navigate("/login");
+  const goToProfile = () => navigate("/");
 
-    return { goToLogin, goToProfile };
+  return { goToLogin, goToProfile };
 };
 
 export default useNavigation;

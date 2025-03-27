@@ -74,7 +74,7 @@ describe("fetchUserInfo", () => {
   it("gère les erreurs correctement", async () => {
     fetch.mockResolvedValueOnce({ ok: false });
     await expect(fetchUserInfo(12)).rejects.toThrow(
-      "Failed to fetch data from 12"
+      "Failed to fetch data from 12",
     );
   });
 

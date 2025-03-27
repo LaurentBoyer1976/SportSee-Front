@@ -6,7 +6,7 @@ const BASE_URL = "http://localhost:3000/user";
  * @param {string} endpoint - Endpoint de l'API.
  * @returns {Promise<Object>} - Données brutes de l'API.
  */
- 
+
 const fetchApiData = async (endpoint) => {
   try {
     const response = await fetch(`${BASE_URL}/${endpoint}`);

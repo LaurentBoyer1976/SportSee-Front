@@ -53,7 +53,9 @@ describe("MainHeader Component", () => {
   it("shows a loading message if data is unavailable", () => {
     hooks.default.mockReturnValue(null);
     render(<MainHeader userId={12} />);
-    expect(screen.getByText(/Chargement des informations utilisateur.../i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Chargement des informations utilisateur.../i),
+    ).toBeInTheDocument();
   });
 });
 

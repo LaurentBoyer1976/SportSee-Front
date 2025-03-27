@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 /**
  * @description Layout des graphiques
  * @param {string} userId - ID de l'utilisateur.
- * @returns {JSX.Element} Layout des graphiques 
+ * @returns {JSX.Element} Layout des graphiques
  */
 
 const ChartsLayout = ({ userId }) => {
@@ -20,9 +20,13 @@ const ChartsLayout = ({ userId }) => {
   const performance = useFetchUserPerformance(userId);
   const userInfo = useFetchUserInfo(userId); // Récupère les informations utilisateur, y compris le score
 
-  
-
-  if (!activity || !averageSessions || !performance || !userInfo || userInfo.score === null) { 
+  if (
+    !activity ||
+    !averageSessions ||
+    !performance ||
+    !userInfo ||
+    userInfo.score === null
+  ) {
     return <div>Chargement des graphiques...</div>;
   }
 
@@ -33,7 +37,12 @@ const ChartsLayout = ({ userId }) => {
       <BarChart data={activity.sessions} />
       <div
         className="charts__container"
-        style={{ display: "flex", width: "100%", minHeight: "400px", height: "100%" }}
+        style={{
+          display: "flex",
+          width: "100%",
+          minHeight: "400px",
+          height: "100%",
+        }}
       >
         <LineChart data={averageSessions.sessions} />
         <RadarChart data={performance.data} />
@@ -46,7 +55,5 @@ const ChartsLayout = ({ userId }) => {
 ChartsLayout.propTypes = {
   userId: PropTypes.string.isRequired,
 };
-
-
 
 export default ChartsLayout;

@@ -1,0 +1,14 @@
+.header__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: larger;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000000;
+}/*# sourceMappingURL=header.css.map */

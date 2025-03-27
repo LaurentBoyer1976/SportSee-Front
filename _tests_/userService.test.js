@@ -23,7 +23,7 @@ describe("User Service Tests", () => {
       Promise.resolve({
         ok: true,
         json: async () => mockResponse,
-      })
+      }),
     );
 
     const data = await fetchUserInfo(12);
@@ -34,7 +34,7 @@ describe("User Service Tests", () => {
   it("handles errors correctly", async () => {
     global.fetch = jest.fn(() => Promise.resolve({ ok: false }));
     await expect(fetchUserInfo(12)).rejects.toThrow(
-      "Failed to fetch data from 12"
+      "Failed to fetch data from 12",
     );
   });
 });

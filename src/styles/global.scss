@@ -1,0 +1,14 @@
+@use "./Var_Mixins.scss" as vm;
+// Remise à zéro des styles par défaut
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: vm.$fontFamily;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }

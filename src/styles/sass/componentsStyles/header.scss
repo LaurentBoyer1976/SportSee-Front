@@ -1,0 +1,14 @@
+@use "../../Var_Mixins.scss" as vm;
+
+.header {
+  &__container {
+    display: flex;
+    font-size: larger;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: vm.$color-black;
+  }
+}
+
+

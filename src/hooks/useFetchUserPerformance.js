@@ -1,5 +1,5 @@
-import useFetchData from './useFetchData';
-import { formatUserPerformance } from '../js/services/formatService';
+import useFetchData from "./useFetchData";
+import { formatUserPerformance } from "../js/services/formatService";
 
 /**
  * @description Hook pour récupérer les performances d'un utilisateur
@@ -8,8 +8,8 @@ import { formatUserPerformance } from '../js/services/formatService';
  */
 
 const useFetchUserPerformance = (userId) => {
-    const url = userId ? `/api/user/${userId}/performance` : null;
-    return useFetchData(url, formatUserPerformance, [userId]);
+  const url = userId ? `/api/user/${userId}/performance` : null;
+  return useFetchData(url, formatUserPerformance, [userId]);
 };
 
 export default useFetchUserPerformance;
