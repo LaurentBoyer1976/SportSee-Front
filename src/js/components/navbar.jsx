@@ -5,31 +5,30 @@ import dumbbell from "./../../assets/icons/dumbell.svg";
 import lotus from "./../../assets/icons/lotusposition.svg";
 import swim from "./../../assets/icons/swim.svg";
 
+// Réorganisez les icônes pour correspondre à l'ordre souhaité
 const navLabels = ["Accueil", "Profil", "Réglage", "Communauté"];
-const navIcons = [biking, dumbbell, lotus, swim];
+const navIcons = [lotus, swim, biking, dumbbell]; // Ordre : lotus, swim, biking, dumbbell
 
 /**
  * @description NavBar component
- * @param {Object} props - Props du composant
- * @param {"text"|"icon"} props.type - Type d'affichage : "text" pour les textes, "icon" pour les icônes
+ * @param {Function} onLogin - Fonction pour gérer la connexion
+ * @param {boolean} isAside - Indique si le NavBar est utilisé dans l'aside
  * @returns {JSX.Element} NavBar component
  */
-const NavBar = ({ type }) => {
+const NavBar = ({ onLogin, isAside }) => {
   return (
     <nav className="navBar">
       <ul className="navList">
-        {type === "text" &&
-          navLabels.map((label, index) => (
-            <li className="navList__item" key={index}>
-              <NavLink text={label} />
-            </li>
-          ))}
-        {type === "icon" &&
-          navIcons.map((icon, index) => (
-            <li className="navList__item" key={index}>
-              <NavLink icon={icon} />
-            </li>
-          ))}
+        {navLabels.map((label, index) => (
+          <li className="navList__item" key={index}>
+            <NavLink
+              text={label}
+              icon={navIcons[index]}
+              isAside={isAside} // Passe la prop isAside
+              onLogin={onLogin} // Passe la fonction de connexion
+            />
+          </li>
+        ))}
       </ul>
     </nav>
   );

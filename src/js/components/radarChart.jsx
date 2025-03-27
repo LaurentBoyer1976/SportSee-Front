@@ -21,7 +21,7 @@ const RadarChart = ({ data }) => {
   const maxValue = Math.max(...data.map((item) => item.value)); // Trouvez la valeur maximale pour le domaine
  
   return (
-    <ResponsiveContainer className="radarChart" width={200} height={200} minHeight={200}>
+    <ResponsiveContainer className="radarChart" width="100%" height= "100%" minHeight={200}>
       <RechartsRadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="kindName" /> {/* Utilisez `kindName` pour les labels */}

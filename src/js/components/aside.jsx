@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "./navbar.jsx";
-import LegalMention from "./legalMention.jsx";
 
 /**
  * @description Aside component
@@ -9,10 +8,7 @@ import LegalMention from "./legalMention.jsx";
 const Aside = () => {
   return (
     <aside className="aside">
-      <div className="aside__container">
-        <NavBar type="icon" />
-        <LegalMention />
-      </div>
+      <NavBar isAside={true} /> {/* Affiche uniquement les icônes */}
     </aside>
   );
 };
