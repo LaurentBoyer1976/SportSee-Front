@@ -4,8 +4,6 @@
     background-color: vm.$primaryBlack;
     &__container{
         display: flex;        
-        justify-content: space-between;
-        width: 100%;
         max-height: 91px;
         padding: 1% 1%;
         .homeLinkLogo{
