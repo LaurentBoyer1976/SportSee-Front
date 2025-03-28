@@ -1,13 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "src/styles/Var_Mixins.scss" as *;`, // Charge automatiquement vos variables/mixins SCSS
-      },
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, "./src"),
     },
   },
   server: {
@@ -23,7 +22,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ["react", "react-dom"], // Séparer les dépendances principales
+          vendor: ["react", "react-dom"],
         },
       },
     },
