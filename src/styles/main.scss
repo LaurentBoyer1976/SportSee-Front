@@ -1,0 +1,20 @@
+@use "src/styles/variables.scss" as vm;
+
+//Info : remise à zéro des marges et des paddings
+//Info : définition de la taille de la police de caractère par défaut
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: vm.$mainFontFamily;
+    font-size: vm.$mainFontSize14;
+    
+}
+li{
+    list-style: none;
+    
+}
+a{
+ text-decoration: none;
+    
+}

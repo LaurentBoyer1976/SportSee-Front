@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+//Info : Font-styles (polices, couleurs, tailles, poids)
+$mainFontFamily: 'Roboto', sans-serif;
+$mainFontSize14: 14px;
+$fontSize16: 1.1429rem; // 16px / 14px
+$fontSize18: 1.2857rem; // 18px / 14px
+$fontSize24: 1.7143rem; // 24px / 14px
+$fontSize32: 2.2857rem; // 32px / 14px
+$fontSize48: 3.4286rem; // 48px / 14px
+$fontWeight700: 700;
+$fontWeight500: 500;
+$fontWeight400: 400;
+
+
+//Info : Couleurs
+$primaryRed: #FF0101; // Rouge vif
+$primaryBlack: #000000;   // Noir
+$primaryWhite: #FFFFFF;   // Blanc
+$secondaryLight-gray: #FBFBFB; // Gris clair
+$secondaryMedium-gray: #74798C; // Gris moyen
