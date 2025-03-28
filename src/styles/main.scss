@@ -15,6 +15,35 @@ li{
     
 }
 a{
- text-decoration: none;
-    
+ text-decoration: none;   
 }
+#root { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-auto-flow: row dense;
+    grid-template-areas:
+      "header header header header"
+      "aside main main main"
+      "aside main main main"
+      "aside main main main"
+      "aside main main main"
+      "aside main main main";
+    width: 100%;
+    height: 100%;
+  }
+  
+  header { grid-area: header;
+        height: fit-content;
+    }
+  
+  aside { grid-area: aside;
+        height: fit-content;
+    }
+  
+  main { grid-area: main;
+        height: fit-content;
+        width: 100%;
+    }
+  
