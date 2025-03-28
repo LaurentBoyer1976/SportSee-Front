@@ -25,10 +25,7 @@ const useFetchData = (url, formatter, dependencies = []) => {
           : rawData.data;
         setData(formattedData);
       } catch (error) {
-        console.error(
-          `Erreur lors de la récupération des données depuis ${url} :`,
-          error,
-        );
+        // Suppression des logs de débogage
       }
     };
 

@@ -6,8 +6,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // Charge automatiquement vos variables/mixins SCSS dans tous les fichiers
-        additionalData: `@use "src/styles/Var_Mixins.scss" as *;`,
+        additionalData: `@use "src/styles/Var_Mixins.scss" as *;`, // Charge automatiquement vos variables/mixins SCSS
       },
     },
   },

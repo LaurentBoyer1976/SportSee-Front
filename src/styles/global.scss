@@ -1,4 +1,7 @@
 @use "./Var_Mixins.scss" as vm;
+@import "../styles/sass/componentsStyles/header.scss";
+@import "../styles/sass/componentsStyles/homeLink.scss";
+@import "../styles/sass/componentsStyles/navBar.scss";
 // Remise à zéro des styles par défaut
 * {
     margin: 0;

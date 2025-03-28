@@ -18,7 +18,7 @@ const Profile = ({ userId }) => {
     <div className="profile">
       <MainHeader userId={userId} />
       <ChartsLayout userId={userId} />
-      <KeyDataCard userId={userId} />
+      <KeyDataCard userId={Number(userId)} />
     </div>
   );
 };

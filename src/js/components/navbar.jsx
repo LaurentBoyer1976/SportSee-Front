@@ -16,10 +16,10 @@ const navIcons = [lotus, swim, biking, dumbbell]; // Ordre : lotus, swim, biking
  */
 const NavBar = ({ isAside }) => {
   return (
-    <nav className="navBar">
-      <ul className="navList">
+    <nav className="navBar asideBar">
+      <ul className="navList asideList">
         {navLabels.map((label, index) => (
-          <li className="navList__item" key={index}>
+          <li className="navList__item asideList__item" key={index}>
             <NavLink
               text={label}
               icon={navIcons[index]}

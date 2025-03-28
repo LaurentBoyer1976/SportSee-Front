@@ -1,0 +1,12 @@
+@use "../../Var_Mixins.scss" as vm;
+
+.navBar{
+    display: flex;    
+    width: 500px;
+    .navList{
+        display: flex;; 
+        align-items: center;
+        justify-content: center;
+        width: 100%;   
+    }    
+}
