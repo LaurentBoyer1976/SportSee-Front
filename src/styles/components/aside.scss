@@ -4,15 +4,15 @@
     background-color: vm.$primaryBlack;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: center;    
     width: 120px;
-    height: 1024px;
+    
 }
 .asideBar{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    height: 90%;
+    height: 80%;
     width: 100%;
     
 }
@@ -20,6 +20,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: center;
     row-gap: 20px;
     height: 100%;
     width: 100%;

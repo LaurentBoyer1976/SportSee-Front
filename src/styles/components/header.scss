@@ -2,9 +2,11 @@
 
 .header{
     background-color: vm.$primaryBlack;
+    height: 100%;
+    max-height: 91px;
     &__container{
-        display: flex;        
-        max-height: 91px;
+        display: flex;              
+     
         padding: 1% 1%;
         .homeLinkLogo{
             display: flex;
