@@ -10,9 +10,9 @@ import PropTypes from "prop-types";
  */
 const NavLink = ({ text, icon, isAside }) => {
   return (
-    <a className="navList__item--link" href="#">
+    <a className={!isAside ? "navList__item--link" : "asideList__item--link"} href="#">
       {isAside ? (
-        icon && <img src={icon} alt={text} className="navList__item--icon" />
+        icon && <img src={icon} alt={text} className="asideList__item--link-icon" />
       ) : (
         <span>{text}</span>
       )}

@@ -1,0 +1,22 @@
+@use "./../variables.scss" as vm;
+
+.navBar{
+    display: flex;
+    align-items: center;
+    width : 100%;  
+
+}
+.navList{
+    display: flex; 
+    width: 100%;
+    justify-content: space-evenly;
+    column-gap: 100px;    
+}
+.navList__item{
+    &--link{
+        color: vm.$primaryWhite;
+        font-weight: vm.$fontWeight500;
+        font-size: vm.$fontSize24;
+    }
+    
+}       

@@ -1,6 +1,6 @@
 import NavBar from "./navbar.jsx";
 import HomeLink from "./homeLink.jsx";
-import "../../styles/css/header.css"; // Import du style du header
+import "src/styles/components/header.scss";
 
 /**
  * @description Header component

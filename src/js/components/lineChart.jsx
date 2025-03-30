@@ -18,7 +18,13 @@ const LineChart = ({ data }) => {
   );
 };
 LineChart.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      sessionLength: PropTypes.number.isRequired,
+      index: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default LineChart;

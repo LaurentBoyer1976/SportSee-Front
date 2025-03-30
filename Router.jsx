@@ -12,7 +12,6 @@ const AppRouter = () => {
   useEffect(() => {
     const handleStorageChange = () => {
       const newUserId = localStorage.getItem("user");
-      console.log("Mise à jour de userId dans Router :", newUserId);
       updateUserId(); // Utilisation de la fonction du hook
     };
 
@@ -21,8 +20,6 @@ const AppRouter = () => {
       window.removeEventListener("storage", handleStorageChange);
     };
   }, [updateUserId]);
-
-  console.log("User ID dans Router :", userId);
 
   return (
     <Router>
