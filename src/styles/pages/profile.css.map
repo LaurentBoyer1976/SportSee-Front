@@ -1,0 +1,1 @@
+{"version":3,"sources":["profile.scss","profile.css"],"names":[],"mappings":"AACA;EACE,oBAAA;EAAA,oBAAA;EAAA,aAAA;EACA,4BAAA;EAAA,6BAAA;MAAA,0BAAA;UAAA,sBAAA;ACAF","file":"profile.css","sourcesContent":["\r\n.profile {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n",".profile {\n  display: flex;\n  flex-direction: column;\n}"]}

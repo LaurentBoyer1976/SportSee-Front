@@ -2,6 +2,7 @@ import React from "react";
 import UserName from "./userName";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
 import PropTypes from "prop-types";
+import "src/styles/components/mainHeader.scss";
 
 /**
  * @description MainHeader component
@@ -13,14 +14,14 @@ const MainHeader = ({ userId }) => {
   const userInfo = useFetchUserInfo(userId);
 
   if (!userInfo) {
-    return <div>Chargement des informations utilisateur...</div>;
+    return <div className="loader">Chargement des informations utilisateur...</div>;
   }
 
   return (
-    <header>
-      <div>
+    <header className="userProfile__header">
+      <div className="userProfile__header--content">
         <UserName data={userInfo.userInfo.firstName} />
-        <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
+        <h2 className="userProfile__header--content-text">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       </div>
     </header>
   );

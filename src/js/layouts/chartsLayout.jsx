@@ -37,12 +37,12 @@ const ChartsLayout = ({ userId }) => {
       <BarChart data={activity.sessions} />
       <div
         className="charts__container"
-        style={{
+        /*style={{
           display: "flex",
           width: "100%",
           minHeight: "400px",
           height: "100%",
-        }}
+        }}*/
       >
         <LineChart data={averageSessions.sessions} />
         <RadarChart data={performance.data} />

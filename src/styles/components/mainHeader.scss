@@ -1,0 +1,22 @@
+@use "./../variables.scss" as vm;
+
+.userProfile__header{
+    .userProfile__header--content{
+        display: flex;
+        flex-flow: column wrap;
+        &-title{
+            font-size: vm.$fontSize48;
+            font-weight: vm.$fontWeight500;
+            .firstname{
+                font-size: vm.$fontSize48;
+                font-weight: vm.$fontWeight500;
+                color: vm.$primaryRed;
+            }
+        }
+        &-text{
+            font-size: vm.$fontSize18;
+            font-weight: vm.$fontWeight400;
+        }
+
+    }
+}

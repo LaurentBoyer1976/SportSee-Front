@@ -2,6 +2,7 @@ import MainHeader from "./../components/mainHeader.jsx";
 import ChartsLayout from "./../layouts/chartsLayout.jsx";
 import KeyDataCard from "./../components/keyDataCard.jsx";
 import PropTypes from "prop-types";
+import "src/styles/pages/profile.scss";
 
 /**
  * @description Profile
@@ -15,11 +16,13 @@ const Profile = ({ userId }) => {
   }
 
   return (
-    <div className="profile">
-      <MainHeader userId={userId} />
-      <ChartsLayout userId={userId} />
+    <article className="profile">
+      <section className="userProfile">
+        <MainHeader userId={userId} />
+        <ChartsLayout userId={userId} />
+      </section>      
       <KeyDataCard userId={Number(userId)} />
-    </div>
+    </article>
   );
 };
 Profile.propTypes = {
