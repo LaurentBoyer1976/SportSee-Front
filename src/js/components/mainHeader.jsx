@@ -2,7 +2,7 @@ import React from "react";
 import UserName from "./userName";
 import useFetchUserInfo from "../../hooks/useFetchUserInfo";
 import PropTypes from "prop-types";
-import "src/styles/components/mainHeader.scss";
+import "../../styles/scss/components/mainHeader.scss"; 
 
 /**
  * @description MainHeader component

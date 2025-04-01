@@ -1,6 +1,6 @@
 import NavBar from "./navbar.jsx";
 import LegalMention from "./legalMention.jsx";
-import "src/styles/components/aside.scss";
+import "../../styles/scss/components/aside.scss"; // Mise à jour du chemin
 /**
  * @description Aside component
  * @returns {JSX.Element} Aside component

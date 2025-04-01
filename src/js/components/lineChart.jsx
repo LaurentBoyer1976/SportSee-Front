@@ -7,7 +7,7 @@ import {
   Legend,
 } from "recharts";
 import PropTypes from "prop-types";
-import "../../styles/components/lineChart.scss";
+import "../../styles/scss/components/lineChart.scss";
 
 const LineChart = ({ data }) => {
   // Conversion des numéros des jours en lettres
