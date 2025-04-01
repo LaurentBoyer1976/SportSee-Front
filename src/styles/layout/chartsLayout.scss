@@ -4,6 +4,7 @@
 .chartsLayout{
     display: flex;
     flex-direction: column;
+    row-gap: 30px;
     width: 100%;
     min-width: 835px;
 }
@@ -12,4 +13,5 @@
     width: 100%;
     flex-direction: row;
     align-items: center;
+    column-gap: 30px;
 }
