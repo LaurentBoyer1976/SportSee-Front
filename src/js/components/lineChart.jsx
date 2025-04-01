@@ -5,7 +5,6 @@ import {
   Tooltip,
   ResponsiveContainer,
   Legend,
-  ReferenceArea,
 } from "recharts";
 import PropTypes from "prop-types";
 import "../../styles/components/lineChart.scss";
