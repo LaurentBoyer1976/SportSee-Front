@@ -19,7 +19,7 @@ const LineChart = ({ data }) => {
 
   // Légende personnalisée
   const CustomLegend = () => {
-    return <p style={{ color: "#FFFFFF", fontSize: "16px", fontWeight: "bold", margin: 0, opacity: 0.6}}>Durée moyenne des sessions</p>;
+    return <p style={{ color: "#FFFFFF", fontSize: "16px", fontWeight: "bold", margin: 0, opacity: 0.6, maxWidth: "150px"}}>Durée moyenne des sessions</p>;
   };
 
   // Tooltip personnalisé
@@ -54,7 +54,14 @@ const LineChart = ({ data }) => {
 
   return (
     <div className="chartContainer__lineChart">
-      <ResponsiveContainer>
+      <ResponsiveContainer
+        className="lineChart"
+        width="100%"
+        height="100%"
+        minHeight={300}
+        minWidth={250}
+      >
+        {/* Graphique linéaire */}
         <RechartsLineChart
           data={processedData}
           margin={{

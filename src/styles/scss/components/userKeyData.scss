@@ -3,9 +3,12 @@
 .userKeyData{
     display: flex;
     gap: 1rem;
-    max-width: 258px;
+    min-width: 258px;
+    width: 100%;
     padding: 1rem;
-    max-height: 125px;
+    height: 100%;
+    box-sizing: border-box;
+    min-height: 125px;
     background-color: vm.$secondaryLight-gray;
     border-radius: 8px;
     .userKeyData__info{

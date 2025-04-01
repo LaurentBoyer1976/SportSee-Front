@@ -4,9 +4,13 @@
   display: -ms-flexbox;
   display: flex;
   gap: 1rem;
-  max-width: 258px;
+  min-width: 258px;
+  width: 100%;
   padding: 1rem;
-  max-height: 125px;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-height: 125px;
   background-color: #FBFBFB;
   border-radius: 8px;
 }

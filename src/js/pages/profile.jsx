@@ -17,11 +17,12 @@ const Profile = ({ userId }) => {
 
   return (
     <article className="profile">
+      <MainHeader userId={userId} />
       <section className="userProfile">
-        <MainHeader userId={userId} />
         <ChartsLayout userId={userId} />
+        <KeyDataCard userId={Number(userId)} />
       </section>      
-      <KeyDataCard userId={Number(userId)} />
+     
     </article>
   );
 };

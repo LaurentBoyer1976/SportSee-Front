@@ -6,6 +6,8 @@
     .userProfile__header--content{
         display: flex;
         flex-flow: column wrap;
+        height: 100%;
+        row-gap: 2.5rem;
         &-title{
             font-size: vm.$fontSize48;
             font-weight: vm.$fontWeight500;
