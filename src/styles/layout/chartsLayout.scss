@@ -1,0 +1,8 @@
+@use "./../variables.scss" as vm;
+@use "./../mixins.scss" as mixin;
+
+.chartsLayout{
+    display: flex;
+    width: 100%;
+    min-width: 835px;
+}
