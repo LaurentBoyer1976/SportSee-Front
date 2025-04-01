@@ -3,11 +3,10 @@ import {
   PolarGrid,
   PolarAngleAxis,
   Radar,
-  Legend,
   ResponsiveContainer,
-  PolarRadiusAxis,
 } from "recharts";
 import PropTypes from "prop-types";
+import "../../styles/components/radarChart.scss";
 
 /**
  * @description Composant RadarChart
@@ -16,39 +15,60 @@ import PropTypes from "prop-types";
  */
 
 const RadarChart = ({ data }) => {
-  const maxValue = Math.max(...data.map((item) => item.value)); // Trouvez la valeur maximale pour le domaine
+  // Mapping des noms en français
+  const kindNameMapping = {
+    cardio: "Cardio",
+    energy: "Énergie",
+    endurance: "Endurance",
+    strength: "Force",
+    speed: "Vitesse",
+    intensity: "Intensité",
+  };
+
+  // Ajouter les noms traduits aux données
+  const translatedData = data.map((item) => ({
+    ...item,
+    kindName: kindNameMapping[item.kindName], // Traduire les noms
+  }));
+
+  // Ordre souhaité des labels
+  const desiredOrder = ["Intensité", "Vitesse", "Force", "Endurance", "Énergie", "Cardio"];
+
+  // Réorganiser les données selon l'ordre souhaité
+  const sortedData = translatedData.sort(
+    (a, b) => desiredOrder.indexOf(a.kindName) - desiredOrder.indexOf(b.kindName)
+  );
 
   return (
-    <ResponsiveContainer
-      className="radarChart"
-      width="100%"
-      height="100%"
-      minHeight={200}
-    >
-      <RechartsRadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-        <PolarGrid />
-        <PolarAngleAxis dataKey="kindName" />{" "}
-        {/* Utilisez `kindName` pour les labels */}
-        <PolarRadiusAxis angle={360} domain={[0, maxValue]} />{" "}
-        {/* Ajustez le domaine si nécessaire */}
-        <Radar
-          name="Performance"
-          dataKey="value"
-          stroke="#8884d8"
-          fill="#8884d8"
-          fillOpacity={0.6}
-        />
-        <Legend />
-      </RechartsRadarChart>
-    </ResponsiveContainer>
+    <div className="chartContainer__radarChart">
+      <ResponsiveContainer
+        className="radarChart"
+        width="100%"
+        height="100%"
+        minHeight={200}
+      >
+        <RechartsRadarChart cx="50%" cy="50%" outerRadius="80%" data={sortedData}>
+          <PolarGrid />
+          <PolarAngleAxis dataKey="kindName" stroke="#fff" tickLine={false} />
+          <Radar
+            name=""
+            dataKey="value"
+            stroke="#FF0101B2"
+            fill="#FF0101B2"
+            fillOpacity={0.7}
+          />
+        </RechartsRadarChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
+
 RadarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.number.isRequired,
       kindName: PropTypes.string.isRequired,
-    }),
+    })
   ).isRequired,
 };
 
