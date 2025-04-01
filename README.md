@@ -1,42 +1,50 @@
 # SportSee Frontend
 
-SportSee est une application de suivi sportif développée avec React et Vite.
+SportSee est une application de suivi sportif développée avec **React** et **Vite**. Elle permet de visualiser des données d'activité physique grâce à des graphiques interactifs.
+
+---
 
 ## Fonctionnalités
 
-- ⚡️ Développement rapide avec Vite
-- 🎨 Stylisme avec Sass
-- ✅ Tests unitaires avec Jest et Testing Library
-- 🛠️ Qualité de code avec ESLint et Prettier
-- 📊 Visualisation des données avec Recharts
-- 🔄 React Router pour la navigation
+- ⚡️ **Développement rapide** avec Vite
+- 🎨 **Stylisme avancé** avec Sass
+- ✅ **Tests unitaires** avec Jest et Testing Library
+- 🛠️ **Qualité de code** assurée avec ESLint et Prettier
+- 📊 **Visualisation des données** avec Recharts
+- 🔄 **Navigation fluide** avec React Router
+
+---
 
 ## Prérequis
 
 - [Node.js](https://nodejs.org/) (version 16 ou supérieure)
 - [npm](https://www.npmjs.com/) (installé avec Node.js)
 
+---
+
 ## Installation
 
-Clonez le dépôt et installez les dépendances :
+1. Clonez le dépôt frontend et installez les dépendances :
 
-```bash
-git clone https://github.com/votre-utilisateur/sportsee-front.git
-cd sportsee-front
-npm install
-```
+   ```bash
+   git clone https://github.com/votre-utilisateur/sportsee-front.git
+   cd sportsee-front
+   npm install
+   ```
 
-Clonez également le backend disponible sur GitHub :
+2. Clonez également le backend disponible sur GitHub :
 
-```bash
-git clone https://github.com/LaurentBoyer1976/SportSee-Back.git
-```
+   ```bash
+   git clone https://github.com/LaurentBoyer1976/SportSee-Back.git
+   ```
 
-Suivez les instructions dans le dépôt backend pour démarrer le serveur.
+3. Suivez les instructions dans le dépôt backend pour démarrer le serveur.
+
+---
 
 ## Développement
 
-Démarrez le serveur de développement :
+Démarrez le serveur de développement pour le frontend :
 
 ```bash
 npm run dev
@@ -44,9 +52,11 @@ npm run dev
 
 L'application sera disponible à l'adresse [http://localhost:5173](http://localhost:5173).
 
+---
+
 ## Compilation des styles
 
-Les fichiers Sass sont compilés en CSS. Pour compiler manuellement ou surveiller les changements :
+Les fichiers Sass sont compilés en CSS. Vous pouvez compiler manuellement ou surveiller les changements :
 
 - **Compilation unique :**
 
@@ -55,9 +65,12 @@ Les fichiers Sass sont compilés en CSS. Pour compiler manuellement ou surveille
   ```
 
 - **Surveillance des changements :**
+
   ```bash
   npm run watch:css
   ```
+
+---
 
 ## Tests
 
@@ -66,6 +79,8 @@ Exécutez les tests unitaires avec Jest :
 ```bash
 npm run test
 ```
+
+---
 
 ## Linting et formatage
 
@@ -76,9 +91,12 @@ npm run test
   ```
 
 - **Formatage avec Prettier :**
+
   ```bash
   npm run format
   ```
+
+---
 
 ## Production
 
@@ -89,6 +107,8 @@ npm run build
 ```
 
 Le dossier `dist/` contiendra les fichiers prêts pour le déploiement.
+
+---
 
 ## Déploiement
 
@@ -105,6 +125,8 @@ docker run -p 3000:3000 sportsee-app
 
 Déployez le contenu du dossier `dist/` sur un serveur web ou une plateforme cloud.
 
+---
+
 ## Structure du projet
 
 ```
@@ -116,6 +138,8 @@ src/
 └── App.jsx        # Composant principal
 ```
 
+---
+
 ## Outils et technologies
 
 - **React** : Bibliothèque pour construire l'interface utilisateur.
@@ -125,6 +149,18 @@ src/
 - **ESLint** : Analyse statique pour la qualité du code.
 - **Prettier** : Formatage automatique du code.
 - **Recharts** : Bibliothèque pour les graphiques.
+
+---
+
+## Contribution
+
+Les contributions sont les bienvenues ! Si vous souhaitez contribuer, veuillez ouvrir une issue ou soumettre une pull request.
+
+---
+
+## Licence
+
+Ce projet est sous licence MIT.
 
 ---
 

@@ -2,6 +2,9 @@ import React from "react";
 import { authenticateUser } from "../services/authentificationService";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
+import "../../styles/scss/components/login.scss"; // Import du fichier SCSS
+import logo from "../../assets/logos/SportSeeLogo.svg"; // Import du logo
 
 /**
  * @description Login component
@@ -65,26 +68,31 @@ class Login extends React.Component {
     const { firstName, userId, error } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <p>Prénom:</p>
+      <div className="login">
+        <img src={logo} alt="SportSee Logo" className="login__logo" />
+        <form onSubmit={this.handleSubmit} className="login__form">
+          <label htmlFor="firstName" className="login__label">Prénom:</label>
           <input
             type="text"
+            id="firstName"
             name="firstName"
             value={firstName}
             onChange={this.myChangeHandler}
+            className="login__input"
             required
           />
-          <p>ID utilisateur:</p>
+          <label htmlFor="userId" className="login__label">ID utilisateur:</label>
           <input
             type="number"
+            id="userId"
             name="userId"
             value={userId}
             onChange={this.myChangeHandler}
+            className="login__input"
             required
           />
-          <button type="submit">Se connecter</button>
-          {error && <p className="error">{error}</p>}
+          <button type="submit" className="login__button">Se connecter</button>
+          {error && <p className="login__error">{error}</p>}
         </form>
       </div>
     );
@@ -100,6 +108,22 @@ class Login extends React.Component {
 
 function LoginWithNavigate(props) {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Ajoute la classe "login-page" à l'élément #root
+    const rootElement = document.getElementById("root");
+    if (rootElement) {
+      rootElement.classList.add("login-page");
+    }
+
+    // Nettoie la classe lorsque le composant est démonté
+    return () => {
+      if (rootElement) {
+        rootElement.classList.remove("login-page");
+      }
+    };
+  }, []);
+
   return <Login {...props} navigate={navigate} />;
 }
 Login.propTypes = {

@@ -10,7 +10,6 @@ import PropTypes from "prop-types";
 const LoginPage = ({ onLogin }) => {
   return (
     <div className="loginPage">
-      <h1>Connexion</h1>
       <LoginWithNavigate onLogin={onLogin} />
     </div>
   );
