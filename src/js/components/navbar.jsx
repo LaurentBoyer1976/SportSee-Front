@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import dumbbell from "./../../assets/icons/dumbell.svg";
 import lotus from "./../../assets/icons/lotusposition.svg";
 import swim from "./../../assets/icons/swim.svg";
-import "src/styles/components/navBar.scss";
+import "../../styles/scss/components/navBar.scss";
 
 // Réorganisez les icônes pour correspondre à l'ordre souhaité
 const navLabels = ["Accueil", "Profil", "Réglage", "Communauté"];

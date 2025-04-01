@@ -1,0 +1,19 @@
+@use "./../variables.scss" as vm;
+@use "./../mixins.scss" as mixin;
+.profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 4rem 4rem 4rem 5rem;
+  box-sizing: border-box;
+  row-gap: 75px;
+  .userProfile{
+    display: flex;
+    flex-direction: row;  
+    //height: 100%;
+    width: 100%;
+    column-gap: 30px;
+    box-sizing: border-box;
+  }
+}

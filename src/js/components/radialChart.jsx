@@ -1,6 +1,6 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
-import "src/styles/components/radialChart.scss";
+import "../../styles/scss/components/radialChart.scss";
 
 /**
  * @description Composant RadialChart pour afficher un graphique radial.
@@ -24,8 +24,12 @@ const RadialChart = ({ data }) => {
 
   return (
     <div className="chartContainer__radialChart">
-      <ResponsiveContainer width="100%" height={300}>
-        <RadialBarChart
+      <ResponsiveContainer 
+        width="100%"
+        height={300}
+        minWidth={250}
+      >
+        <RadialBarChart 
           cx="50%"
           cy="50%"
           innerRadius="70%"

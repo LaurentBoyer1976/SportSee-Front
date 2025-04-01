@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import UserKeyData from "./userKeyData";
 import useKeyData from "../../hooks/useKeyData";
-
+import "../../styles/scss/components/keyDataCards.scss";
 // Import des icônes
 import CaloriesIcon from "../../assets/icons/calories-icon.svg";
 import ProteinIcon from "../../assets/icons/protein-icon.svg";

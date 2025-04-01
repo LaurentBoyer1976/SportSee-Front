@@ -1,0 +1,44 @@
+.legend {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #20253a;
+    margin-left: 20px;
+   
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  &__color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  &__label {
+    font-size: 14px;
+    color: #74798c;
+  }
+}

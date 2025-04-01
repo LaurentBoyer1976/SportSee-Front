@@ -6,7 +6,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import PropTypes from "prop-types";
-import "../../styles/components/radarChart.scss";
+import "../../styles/scss/components/radarChart.scss";
 
 /**
  * @description Composant RadarChart
@@ -39,17 +39,59 @@ const RadarChart = ({ data }) => {
     (a, b) => desiredOrder.indexOf(a.kindName) - desiredOrder.indexOf(b.kindName)
   );
 
+  // Info: Fonction pour personnaliser les ticks.
+
+  /**
+   * @description Fonction pour personnaliser les ticks du graphique radar 
+   * @param {Object} param0 - Paramètres de la fonction
+   * @param {Object} param0.payload - Charge utile contenant les données
+   * @param {number} param0.x - Position X du tick
+   * @param {number} param0.y - Position Y du tick
+   * @param {string} param0.textAnchor - Ancrage du texte
+   * @returns {JSX.Element} - Élément texte personnalisé
+   */
+  const renderCustomTick = ({ payload, x, y, textAnchor }) => {
+    const offsets = {
+      Intensité: { offsetX: 0, offsetY: -7 },
+      Endurance: { offsetX: 0, offsetY: 7 },
+      Cardio: { offsetX: -7, offsetY: 0 },
+      Énergie: { offsetX: -7, offsetY: 0 },
+      Vitesse: { offsetX: 7, offsetY: 0 },
+      Force: { offsetX: 7, offsetY: 0 },
+    };
+
+    const { offsetX = 0, offsetY = 0 } = offsets[payload.value] || {};
+
+    return (
+      <text
+        x={x + offsetX}
+        y={y + offsetY}
+        textAnchor={textAnchor}
+        dominantBaseline="central"
+        style={{ fontSize: "12px", fill: "#fff" }}
+      >
+        {payload.value}
+      </text>
+    );
+  };
+
   return (
     <div className="chartContainer__radarChart">
       <ResponsiveContainer
         className="radarChart"
         width="100%"
         height="100%"
-        minHeight={200}
+        minHeight={300}
+        minWidth={250}
       >
-        <RechartsRadarChart cx="50%" cy="50%" outerRadius="80%" data={sortedData}>
+        <RechartsRadarChart cx="50%" cy="50%" outerRadius="70%" data={sortedData}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="kindName" stroke="#fff" tickLine={false} />
+          <PolarAngleAxis
+            dataKey="kindName"
+            stroke="#fff"
+            tickLine={false}
+            tick={renderCustomTick} // Utiliser la fonction personnalisée pour les ticks
+          />
           <Radar
             name=""
             dataKey="value"

@@ -1,4 +1,4 @@
-import "../../styles/layout/chartsLayout.scss";
+import "../../styles/scss/layouts/chartsLayout.scss"; 
 import BarChart from "./../components/barChart.jsx";
 import LineChart from "./../components/lineChart.jsx";
 import RadarChart from "./../components/radarChart.jsx";

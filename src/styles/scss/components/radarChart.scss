@@ -1,0 +1,11 @@
+@use "../variables.scss" as vm;
+
+.chartContainer__radarChart{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background-color: vm.$secondaryDark-gray;
+        border-radius: 5px;
+       
+}

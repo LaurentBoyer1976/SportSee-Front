@@ -1,0 +1,18 @@
+@use "./../variables.scss" as vm;
+@use "./../mixins.scss" as mixin;
+
+.chartsLayout{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 100%;
+    min-width: 885px;
+}
+.charts__container{
+    display: flex;
+    width: 100%;
+    min-height:320px;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+}

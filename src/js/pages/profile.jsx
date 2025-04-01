@@ -2,7 +2,7 @@ import MainHeader from "./../components/mainHeader.jsx";
 import ChartsLayout from "./../layouts/chartsLayout.jsx";
 import KeyDataCard from "./../components/keyDataCard.jsx";
 import PropTypes from "prop-types";
-import "src/styles/pages/profile.scss";
+import "../../styles/scss/pages/profile.scss"; 
 
 /**
  * @description Profile
@@ -17,11 +17,12 @@ const Profile = ({ userId }) => {
 
   return (
     <article className="profile">
+      <MainHeader userId={userId} />
       <section className="userProfile">
-        <MainHeader userId={userId} />
         <ChartsLayout userId={userId} />
+        <KeyDataCard userId={Number(userId)} />
       </section>      
-      <KeyDataCard userId={Number(userId)} />
+     
     </article>
   );
 };

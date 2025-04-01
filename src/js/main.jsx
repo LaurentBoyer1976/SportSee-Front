@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import AppRouter from "../../Router";
-import "src/styles/main.scss";
+import "../styles/scss/main.scss"; // Import global styles
 /**
  * @description Render the application
  * @returns {void} Render the application

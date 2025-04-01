@@ -1,0 +1,31 @@
+@use"../variables.scss" as vm;
+
+.userKeyData{
+    display: flex;
+    gap: 1rem;
+    min-width: 258px;
+    width: 100%;
+    padding: 1rem;
+    height: 100%;
+    box-sizing: border-box;
+    min-height: 125px;
+    background-color: vm.$secondaryLight-gray;
+    border-radius: 8px;
+    .userKeyData__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        .userKeyData__value{
+            font-size: vm.$fontSize20;
+            font-weight: vm.$fontWeight700;
+            color: vm.$secondaryMedium-gray;
+        }
+        .userKeyData__text{
+            font-weight: vm.$fontWeight500;
+            font-size: vm.$mainFontSize14;
+            color: vm.$secondaryMedium-gray;
+        }
+    }
+
+}

@@ -1,0 +1,67 @@
+@use "../variables.scss" as vm;
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: vm.$secondaryLight-gray;
+
+  &__logo {
+    width: 150px;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: vm.$primaryWhite;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__label {
+    font-size: vm.$fontSize16;
+    font-weight: vm.$fontWeight500;
+    margin-bottom: 0.5rem;
+    color: vm.$primaryBlack;
+    align-self: flex-start;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid vm.$secondaryDark-gray;
+    border-radius: 5px;
+    font-size: vm.$mainFontSize14;
+    box-sizing: border-box;
+  }
+
+  &__button {
+    background-color: vm.$primaryRed;
+    color: vm.$primaryWhite;
+    font-size: vm.$fontSize16;
+    font-weight: vm.$fontWeight500;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken(vm.$primaryRed, 10%);
+    }
+  }
+
+  &__error {
+    color: vm.$primaryRed;
+    font-size: vm.$mainFontSize14;
+    margin-top: 1rem;
+  }
+}
