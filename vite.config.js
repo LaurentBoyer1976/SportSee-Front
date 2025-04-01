@@ -9,6 +9,13 @@ export default defineConfig({
       src: path.resolve(__dirname, "./src"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "src/styles/scss/variables.scss" as *;`, // Import global SCSS variables
+      },
+    },
+  },
   server: {
     proxy: {
       "/api": {

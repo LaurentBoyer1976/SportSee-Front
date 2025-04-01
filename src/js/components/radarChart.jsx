@@ -6,8 +6,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import PropTypes from "prop-types";
-import "../../styles/components/radarChart.scss";
-
+import "../../styles/scss/components/radarChart.scss";
 /**
  * @description Composant RadarChart
  * @param {Array} data - Les données à afficher dans le graphique radar

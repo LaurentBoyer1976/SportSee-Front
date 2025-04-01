@@ -1,0 +1,12 @@
+@use "../variables.scss" as vm;
+
+
+.keyDataCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    row-gap: 40px;
+}

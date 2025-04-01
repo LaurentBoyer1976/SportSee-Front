@@ -9,8 +9,7 @@ import {
   Legend,
 } from "recharts";
 import PropTypes from "prop-types";
-import "../../styles/components/barChart.scss";
-
+import "../../styles/scss/components/barChart.scss";
 /**
  * @description Composant pour afficher un graphique en barres avec deux axes Y (calories et kilogrammes).
  * @param {Array} data - Données à afficher.

@@ -1,6 +1,6 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
-import "src/styles/components/radialChart.scss";
+import "../../styles/scss/components/radialChart.scss";
 
 /**
  * @description Composant RadialChart pour afficher un graphique radial.

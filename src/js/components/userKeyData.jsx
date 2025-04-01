@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "../../styles/scss/components/userKeyData.scss";
 /**
  * @description Composant pour afficher les données clés de l'utilisateur.
  * @param {Object} param0 - Les données à afficher.
