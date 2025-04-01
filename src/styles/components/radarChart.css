@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+.chartContainer__radarChart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #282D30;
+  border-radius: 5px;
+}/*# sourceMappingURL=radarChart.css.map */

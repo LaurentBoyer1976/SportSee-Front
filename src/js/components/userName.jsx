@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
  * @returns {JSX.Element} User name component
  */
 const UserName = ({ data }) => {
-  return <h1>Bonjour, {data}!</h1>;
+  return <h1 className="userProfile__header--content-title">Bonjour <span className="firstname">{data}</span></h1>;
 };
 
 UserName.propTypes = {

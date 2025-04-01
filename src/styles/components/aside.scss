@@ -1,0 +1,34 @@
+@use "./../variables.scss" as vm;
+
+.aside{
+    background-color: vm.$primaryBlack;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;    
+    width: 120px;
+    
+}
+.asideBar{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+    
+}
+.asideList{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+.legalMention{
+    color:vm.$primaryWhite;
+    &__text{
+        font-size: vm.$fontSize12;
+        writing-mode: sideways-lr;
+    }
+}

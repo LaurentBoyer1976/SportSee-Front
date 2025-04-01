@@ -1,3 +1,4 @@
+import "../../styles/layout/chartsLayout.scss";
 import BarChart from "./../components/barChart.jsx";
 import LineChart from "./../components/lineChart.jsx";
 import RadarChart from "./../components/radarChart.jsx";
@@ -34,18 +35,17 @@ const ChartsLayout = ({ userId }) => {
 
   return (
     <div className="chartsLayout">
+      {/* Utilisation du composant BarChart */}
       <BarChart data={activity.sessions} />
-      <div
-        className="charts__container"
-        style={{
-          display: "flex",
-          width: "100%",
-          minHeight: "400px",
-          height: "100%",
-        }}
-      >
+
+      <div className="charts__container">
+        {/* Utilisation du composant LineChart */}
         <LineChart data={averageSessions.sessions} />
+
+        {/* Utilisation du composant RadarChart */}
         <RadarChart data={performance.data} />
+
+        {/* Utilisation du composant RadialChart */}
         <RadialChart data={formattedScore} />
       </div>
     </div>

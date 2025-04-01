@@ -5,6 +5,7 @@ import home from "./../../assets/logos/SportSeeLogo.svg";
  * @description HomeLink component
  * @returns {JSX.Element} HomeLink component
  */
+
 const HomeLink = () => {
   const navigate = useNavigate();
 
@@ -17,9 +18,9 @@ const HomeLink = () => {
   };
 
   return (
-    <button className="homeLinkLogo" onClick={handleLogout}>
+    <a className="homeLinkLogo" onClick={handleLogout}>
       <img src={home} alt="Déconnexion" />
-    </button>
+    </a>
   );
 };
 
