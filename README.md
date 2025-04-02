@@ -54,21 +54,163 @@ L'application sera disponible à l'adresse [http://localhost:5173](http://localh
 
 ---
 
-## Compilation des styles
+## Documentation des composants
 
-Les fichiers Sass sont compilés en CSS. Vous pouvez compiler manuellement ou surveiller les changements :
+### Structure des composants
 
-- **Compilation unique :**
+```
+src/
+├── components/    # Composants React
+│   ├── header.jsx         # Composant pour l'en-tête
+│   ├── aside.jsx          # Composant pour la barre latérale
+│   ├── barChart.jsx       # Composant pour le graphique en barres
+│   ├── radarChart.jsx     # Composant pour le graphique radar
+│   ├── radialChart.jsx    # Composant pour le graphique radial
+│   ├── keyDataCard.jsx    # Composant pour les cartes de données clés
+│   └── login.jsx          # Composant pour la page de connexion
+├── pages/         # Pages de l'application
+│   ├── profile.jsx        # Page principale du profil utilisateur
+│   └── error.jsx          # Page 404
+├── utils/         # Fonctions utilitaires
+│   ├── api.js            # Gestion des appels API
+│   ├── formatData.js     # Formatage des données
+└── main.jsx        # Composant principal
+```
 
-  ```bash
-  npm run build:css
-  ```
+### Description des principaux composants
 
-- **Surveillance des changements :**
+#### **Header**
+- Affiche l'en-tête de l'application avec le logo et les liens de navigation.
 
-  ```bash
-  npm run watch:css
-  ```
+#### **Aside**
+- Barre latérale contenant les icônes de navigation pour accéder aux différentes sections.
+
+#### **BarChart**
+- Affiche un graphique en barres représentant les calories brûlées et le poids quotidien.
+
+#### **RadarChart**
+- Affiche un graphique radar pour visualiser les performances de l'utilisateur dans différentes catégories (Cardio, Intensité, etc.).
+
+#### **RadialChart**
+- Affiche un graphique radial représentant le score quotidien de l'utilisateur.
+
+#### **KeyDataCard**
+- Affiche des cartes contenant des données clés comme les calories, protéines, glucides et lipides.
+
+#### **Login**
+- Page de connexion permettant à l'utilisateur de s'authentifier.
+
+---
+
+## Fonctionnement des appels API
+
+### Endpoints disponibles
+
+1. **Récupération des informations utilisateur :**
+   - **Endpoint** : `/user/:id`
+   - **Description** : Récupère les informations générales de l'utilisateur (nom, score, etc.).
+   - **Exemple de réponse** :
+     ```json
+     {
+       "data": {
+         "id": 12,
+         "userInfos": {
+           "firstName": "Karl",
+           "lastName": "Dovineau",
+           "age": 31
+         },
+         "score": 0.12,
+         "keyData": {
+           "calorieCount": 1930,
+           "proteinCount": 155,
+           "carbohydrateCount": 290,
+           "lipidCount": 50
+         }
+       }
+     }
+     ```
+
+2. **Récupération des activités quotidiennes :**
+   - **Endpoint** : `/user/:id/activity`
+   - **Description** : Récupère les données d'activité quotidienne (poids, calories brûlées).
+   - **Exemple de réponse** :
+     ```json
+     {
+       "data": {
+         "userId": 12,
+         "sessions": [
+           { "day": "2020-07-01", "kilogram": 80, "calories": 240 },
+           { "day": "2020-07-02", "kilogram": 80, "calories": 220 }
+         ]
+       }
+     }
+     ```
+
+3. **Récupération des performances :**
+   - **Endpoint** : `/user/:id/performance`
+   - **Description** : Récupère les performances de l'utilisateur dans différentes catégories.
+   - **Exemple de réponse** :
+     ```json
+     {
+       "data": {
+         "userId": 12,
+         "kind": {
+           "1": "cardio",
+           "2": "energy",
+           "3": "endurance",
+           "4": "strength",
+           "5": "speed",
+           "6": "intensity"
+         },
+         "data": [
+           { "value": 80, "kind": 1 },
+           { "value": 120, "kind": 2 }
+         ]
+       }
+     }
+     ```
+
+4. **Récupération des sessions moyennes :**
+   - **Endpoint** : `/user/:id/average-sessions`
+   - **Description** : Récupère les sessions moyennes de l'utilisateur.
+   - **Exemple de réponse** :
+     ```json
+     {
+       "data": {
+         "userId": 12,
+         "sessions": [
+           { "day": 1, "sessionLength": 30 },
+           { "day": 2, "sessionLength": 40 }
+         ]
+       }
+     }
+     ```
+
+---
+
+## Formatage des données
+
+Les données brutes récupérées via les API sont formatées avant d'être utilisées dans les composants. Voici un exemple de formatage :
+
+### Exemple : Formatage des performances
+
+```js
+export const formatPerformanceData = (data) => {
+  const kindMapping = {
+    1: "Cardio",
+    2: "Énergie",
+    3: "Endurance",
+    4: "Force",
+    5: "Vitesse",
+    6: "Intensité",
+  };
+
+  return data.map((item) => ({
+    value: item.value,
+    kindName: kindMapping[item.kind],
+  }));
+};
+```
 
 ---
 
@@ -124,31 +266,6 @@ docker run -p 3000:3000 sportsee-app
 ### Déploiement manuel
 
 Déployez le contenu du dossier `dist/` sur un serveur web ou une plateforme cloud.
-
----
-
-## Structure du projet
-
-```
-src/
-├── components/    # Composants React
-├── pages/         # Pages de l'application
-├── styles/        # Fichiers Sass et CSS
-├── utils/         # Fonctions utilitaires
-└── App.jsx        # Composant principal
-```
-
----
-
-## Outils et technologies
-
-- **React** : Bibliothèque pour construire l'interface utilisateur.
-- **Vite** : Outil de build rapide pour le développement.
-- **Sass** : Préprocesseur CSS pour un stylisme avancé.
-- **Jest** : Framework de tests unitaires.
-- **ESLint** : Analyse statique pour la qualité du code.
-- **Prettier** : Formatage automatique du code.
-- **Recharts** : Bibliothèque pour les graphiques.
 
 ---
 

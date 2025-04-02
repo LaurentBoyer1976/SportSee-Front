@@ -48,6 +48,12 @@ a{
       align-items: center;
       grid-template-areas: none; // Supprime la grille
     }
+    &.error-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-template-areas: none; // Supprime la grille
+    }
   }
   header { 
         grid-area: header;
