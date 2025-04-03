@@ -80,7 +80,7 @@ const LineChart = ({ data }) => {
           {/* Définition du dégradé */}
           <defs>
             <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="79.27%" stopColor="#FFFFFF" />
+              <stop offset="73.27%" stopColor="#FFFFFF" />
               <stop offset="17.73%" stopColor="rgba(255, 255, 255, 0.403191)" />
             </linearGradient>
           </defs>

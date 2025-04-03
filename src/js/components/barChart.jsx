@@ -32,6 +32,7 @@ const BarChart = ({ data }) => {
   const maxKilogram = Math.max(...userTickCount) + 1;
   const minKilogram = Math.min(...userTickCount) - 1;
   const userTicks = [...new Set([maxKilogram, minKilogram, ...userTickCount])].sort((a, b) => a - b);
+  console.log(userTicks);
 
   // Données pour la légende
   const legendData = [
@@ -91,7 +92,15 @@ const BarChart = ({ data }) => {
             content={<CustomTooltip />}
             cursor={{ fill: "rgba(196, 196, 196, 0.5)" }}
           />
-
+          
+          {/* Barres pour les kilogrammes */}
+          <Bar
+            yAxisId="right"
+            dataKey="kilogram"
+            fill="#282D30"
+            radius={[3, 3, 0, 0]}
+            name="Poids (kg)"
+          />
           {/* Barres pour les calories */}
           <Bar
             yAxisId="left"
@@ -101,14 +110,7 @@ const BarChart = ({ data }) => {
             name="Calories brûlées (kCal)"
           />
 
-          {/* Barres pour les kilogrammes */}
-          <Bar
-            yAxisId="right"
-            dataKey="kilogram"
-            fill="#282D30"
-            radius={[3, 3, 0, 0]}
-            name="Poids (kg)"
-          />
+        
         </RechartsBarChart>
       </ResponsiveContainer>
     </div>
@@ -143,8 +145,8 @@ const CustomTooltip = ({ active, payload }) => {
           fontWeight: "bold",
         }}
       >
-        <p style={{ margin: 0 }}>{`${kilogramData?.value || 0}kg`}</p>
-        <p style={{ margin: 0 }}>{`${caloriesData?.value || 0}kCal`}</p>
+        <p style={{ margin: 0 }}>{`${kilogramData?.value || 0}kg`}</p>    
+        <p style={{ margin: 0 }}>{`${caloriesData?.value || 0}kCal`}</p> 
       </div>
     );
   }

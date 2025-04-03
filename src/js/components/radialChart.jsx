@@ -21,22 +21,30 @@ const RadialChart = ({ data }) => {
 
   // Calculer l'angle de fin en fonction du score (x%)
   const endAngle = 90 + (360 * value) / 100; // Départ à 90° et progression selon le score
-
+  // Définir les rayons pour le cercle blanc
+  const innerRadius = 70; // Rayon intérieur de l'arc rouge
+  const outerRadius = 90; // Rayon extérieur de l'arc rouge
+  const circleRadius = window.innerWidth < 1200 ? innerRadius -10 : innerRadius +20; //Note : le rayon du cercle blanc est dynamique en fonction de la largeur de l'écran
   return (
     <div className="chartContainer__radialChart">
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           cx="50%"
           cy="50%"
-          innerRadius="70%"
-          outerRadius="90%"
+          innerRadius={`${innerRadius}%`}
+          outerRadius={`${outerRadius}%`}
           barSize={10}
           data={data}
           startAngle={90} // Départ à gauche de l'axe vertical
           endAngle={endAngle} // Angle calculé en fonction du score
         >
           {/* Cercle blanc au centre */}
-          <circle cx="50%" cy="50%" r="70" fill="#FFFFFF" />
+          <circle 
+            cx="50%" 
+            cy="50%" 
+            r={circleRadius} // Rayon dynamique
+            fill= "#FFFFFF" 
+          />
 
           {/* Titre "Score" en haut à gauche */}
           <text

@@ -19,4 +19,7 @@
   border-radius: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+.chartContainer__radialChart circle {
+  fill: #ffffff !important;
 }/*# sourceMappingURL=radialChart.css.map */
