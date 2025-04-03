@@ -39,28 +39,20 @@ const RadarChart = ({ data }) => {
     (a, b) => desiredOrder.indexOf(a.kindName) - desiredOrder.indexOf(b.kindName)
   );
 
-  // Info: Fonction pour personnaliser les ticks.
-
-  /**
-   * @description Fonction pour personnaliser les ticks du graphique radar 
-   * @param {Object} param0 - Paramètres de la fonction
-   * @param {Object} param0.payload - Charge utile contenant les données
-   * @param {number} param0.x - Position X du tick
-   * @param {number} param0.y - Position Y du tick
-   * @param {string} param0.textAnchor - Ancrage du texte
-   * @returns {JSX.Element} - Élément texte personnalisé
-   */
+  // Fonction pour personnaliser les ticks
   const renderCustomTick = ({ payload, x, y, textAnchor }) => {
     const offsets = {
-      Intensité: { offsetX: 0, offsetY: -7 },
-      Endurance: { offsetX: 0, offsetY: 7 },
-      Cardio: { offsetX: -7, offsetY: 0 },
-      Énergie: { offsetX: -7, offsetY: 0 },
-      Vitesse: { offsetX: 7, offsetY: 0 },
-      Force: { offsetX: 7, offsetY: 0 },
+      Intensité: { offsetX: 0, offsetY: -1 * window.innerHeight / 100 }, // Using vh for vertical offset
+      Endurance: { offsetX: 0, offsetY: 1 * window.innerHeight / 100 }, // Using vh for vertical offset
+      Cardio: { offsetX: 0.2* window.innerWidth / 100, offsetY: 0 }, // Using vw for horizontal offset
+      Énergie: { offsetX: 0.2 * window.innerWidth / 100, offsetY: 0 }, // Using vw for horizontal offset
+      Vitesse: { offsetX: -0.2 * window.innerWidth / 100, offsetY: 0 }, // Using vw for horizontal offset
+      Force: { offsetX: 0 * window.innerWidth / 100, offsetY: 0 }, // Using vw for horizontal offset
     };
 
     const { offsetX = 0, offsetY = 0 } = offsets[payload.value] || {};
+
+    const fontSize = window.innerWidth < 1200 ? "1.1vh" : "1.1vh"; // Adjust font size for resolutions below 1200px
 
     return (
       <text
@@ -68,7 +60,12 @@ const RadarChart = ({ data }) => {
         y={y + offsetY}
         textAnchor={textAnchor}
         dominantBaseline="central"
-        style={{ fontSize: "12px", fill: "#fff" }}
+        style={{
+          fontSize: fontSize,
+          fill: "#fff",
+          whiteSpace: "pre-wrap", // Allow text wrapping
+          overflow: "visible", // Ensure text is not clipped
+        }}
       >
         {payload.value}
       </text>
@@ -87,6 +84,7 @@ const RadarChart = ({ data }) => {
         <RechartsRadarChart cx="50%" cy="50%" outerRadius="70%" data={sortedData}>
           <PolarGrid />
           <PolarAngleAxis
+
             dataKey="kindName"
             stroke="#fff"
             tickLine={false}

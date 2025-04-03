@@ -8,10 +8,9 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100vh;
-  max-height: 615px;
+  max-height: 74vh;
   width: 35%;
-  padding: 1vh;
-  row-gap: 1vh;
+  row-gap: 4vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }/*# sourceMappingURL=keyDataCards.css.map */

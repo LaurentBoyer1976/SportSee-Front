@@ -2,15 +2,14 @@
 
 .userKeyData{
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 4vh;
     min-width: 150px;
     width: 100%;
-    padding: 1rem;
-    ;
     box-sizing: border-box;
-    min-height: 125px;
     background-color: vm.$secondaryLight-gray;
     border-radius: 8px;
+    padding: 2.5vh;
     .userKeyData__icon{
         height: 60px;
         width: 60px;
@@ -20,6 +19,7 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
+        height: 60px;
         .userKeyData__value{
             font-size: vm.$fontSize20;
             font-weight: vm.$fontWeight700;

@@ -3,15 +3,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4vh;
   min-width: 150px;
   width: 100%;
-  padding: 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  min-height: 125px;
   background-color: #FBFBFB;
   border-radius: 8px;
+  padding: 2.5vh;
 }
 .userKeyData .userKeyData__icon {
   height: 60px;
@@ -30,6 +32,7 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  height: 60px;
 }
 .userKeyData .userKeyData__info .userKeyData__value {
   font-size: 1.4286rem;

@@ -24,9 +24,9 @@ const Layout = () => {
     <>
       <Header />
       <main className="mainContainer">
+        <Aside />
         <Outlet />
-      </main>
-      <Aside />
+      </main>      
     </>
   );
 };

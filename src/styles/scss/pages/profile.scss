@@ -5,14 +5,15 @@
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  padding: 5vh;
+  padding-top: 5vh;
   box-sizing: border-box;
   .userProfile{
     display: flex;
     flex-direction: row;
     margin-top: 2vh;  
     height: 100vh;
-    width: 100%;
+    width: 81vw;
+    max-height:78vh;
     column-gap: 1vh;
     box-sizing: border-box;
   }

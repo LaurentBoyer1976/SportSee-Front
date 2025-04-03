@@ -7,6 +7,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 100vh;
+  max-height: 74vh;
   width: 100%;
   min-width: 585px;
 }
@@ -17,8 +19,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  min-height: 200px;
-  max-height: 320px;
+  min-height: 30vh;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -31,4 +32,5 @@
           column-gap: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin-top: 9vh;
 }/*# sourceMappingURL=chartsLayout.css.map */

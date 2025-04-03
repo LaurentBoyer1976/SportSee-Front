@@ -5,6 +5,7 @@ import dumbbell from "./../../assets/icons/dumbell.svg";
 import lotus from "./../../assets/icons/lotusposition.svg";
 import swim from "./../../assets/icons/swim.svg";
 import "../../styles/scss/components/navBar.scss";
+import "../../styles/scss/components/aside.scss"; // Ajout du style pour l'aside
 
 // Réorganisez les icônes pour correspondre à l'ordre souhaité
 const navLabels = ["Accueil", "Profil", "Réglage", "Communauté"];

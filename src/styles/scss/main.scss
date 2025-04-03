@@ -16,7 +16,7 @@ li{
 a{
  text-decoration: none;   
 }
-#root { 
+/*#root { 
     display: grid;
     grid-template-columns: 0.25fr 1.5fr 1.5fr 1.5fr;
     grid-template-rows: 0.25fr 1fr 1fr 1fr 1fr 1fr;
@@ -65,4 +65,16 @@ a{
         height: 100vh;
         justify-content: center;
         align-items: center;
+  }*/
+  #root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    column-gap: 7vw;
   }

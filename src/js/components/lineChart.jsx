@@ -51,6 +51,12 @@ const LineChart = ({ data }) => {
       })
     ),
   };
+  // Info: Définir la taille de police en fonction de la largeur de la fenêtre
+  const fontSize = window.matchMedia("(max-width: 768px)").matches
+    ? "1vh"
+    : window.matchMedia("(max-width: 1200px)").matches
+      ? "1.2vh"
+      : "1.54vh"; // Note: Ajuste la taille de police pour différentes résolutions
 
   return (
     <div className="chartContainer__lineChart">
@@ -90,7 +96,7 @@ const LineChart = ({ data }) => {
             dataKey="day"
             tickLine={false}
             axisLine={false}
-            tick={{ fill: "#FFFFFF", fontSize: 12, opacity: 0.6 }}
+            tick={{ fill: "#FFFFFF", fontSize: fontSize, opacity: 0.6 }}
           />
 
           {/* Ligne avec le dégradé */}

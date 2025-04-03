@@ -24,12 +24,8 @@ const RadialChart = ({ data }) => {
 
   return (
     <div className="chartContainer__radialChart">
-      <ResponsiveContainer 
-        width="100%"
-        height={150}
-        minWidth={150}
-      >
-        <RadialBarChart 
+      <ResponsiveContainer width="100%" height="100%">
+        <RadialBarChart
           cx="50%"
           cy="50%"
           innerRadius="70%"
@@ -39,6 +35,9 @@ const RadialChart = ({ data }) => {
           startAngle={90} // Départ à gauche de l'axe vertical
           endAngle={endAngle} // Angle calculé en fonction du score
         >
+          {/* Cercle blanc au centre */}
+          <circle cx="50%" cy="50%" r="70" fill="#FFFFFF" />
+
           {/* Titre "Score" en haut à gauche */}
           <text
             x="10%"
@@ -55,12 +54,13 @@ const RadialChart = ({ data }) => {
             clockWise
             dataKey="value"
             fill="#FF0000"
+            cornerRadius={10}
             background={{ fill: "#FBFBFB" }}
           />
           {/* Texte au centre du graphique */}
           <text
             x="50%"
-            y="50%"
+            y="48%"
             textAnchor="middle"
             dominantBaseline="middle"
             style={{ fontSize: "26px", fontWeight: "700", fill: "#282D30" }}
@@ -69,12 +69,13 @@ const RadialChart = ({ data }) => {
           </text>
           <text
             x="50%"
-            y="60%"
+            y="58%"
             textAnchor="middle"
             dominantBaseline="middle"
-            style={{ fontSize: "16px", fill: "#282D30" }}
+            style={{ fontSize: "16px", fill: "#74798C" }}
           >
-            de votre objectif
+            <tspan x="50%" dy="0">de votre</tspan>
+            <tspan x="50%" dy="1.2em">objectif</tspan>
           </text>
         </RadialBarChart>
       </ResponsiveContainer>
