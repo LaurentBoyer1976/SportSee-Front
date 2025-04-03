@@ -1,21 +1,27 @@
+import { USE_MOCK_DATA } from "../../constants/config";
+import mockData from "../../../mock/mockData.js";
+
 const BASE_URL = "http://localhost:3000/user";
 
 /**
- * Fonction générique pour effectuer un appel API.
- * @description Cette fonction est utilisée par les fonctions de récupération de données
+ * Fonction générique pour effectuer un appel API ou utiliser les données mockées.
+ * @description Si USE_MOCK_DATA est true, les données mockées sont utilisées.
  * @param {string} endpoint - Endpoint de l'API.
- * @returns {Promise<Object>} - Données brutes de l'API.
+ * @returns {Promise<Object>} - Données brutes de l'API ou mockées.
  */
-
 const fetchApiData = async (endpoint) => {
+  if (USE_MOCK_DATA) {
+    // Utilisation des données mockées
+    const [resource, userId] = endpoint.split("/");
+    return { data: mockData[resource.toUpperCase()].find((item) => item.userId == userId) };
+  }
+
   try {
     const response = await fetch(`${BASE_URL}/${endpoint}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch data from ${endpoint}`);
     }
-    const data = await response.json();
-
-    return data;
+    return await response.json();
   } catch (error) {
     console.error(`Error fetching data from ${endpoint}:`, error);
     throw error;
