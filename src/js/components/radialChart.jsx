@@ -26,8 +26,8 @@ const RadialChart = ({ data }) => {
     <div className="chartContainer__radialChart">
       <ResponsiveContainer 
         width="100%"
-        height={300}
-        minWidth={250}
+        height={150}
+        minWidth={150}
       >
         <RadialBarChart 
           cx="50%"

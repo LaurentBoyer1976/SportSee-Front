@@ -4,15 +4,17 @@
 .chartsLayout{
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
     width: 100%;
-    min-width: 885px;
+    min-width: 585px;
 }
 .charts__container{
     display: flex;
     width: 100%;
-    min-height:320px;
+    height: 100%;
+    min-height:200px;
+    max-height: 320px;
     flex-direction: row;
     align-items: center;
     column-gap: 20px;
+    box-sizing: border-box;
 }

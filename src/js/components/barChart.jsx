@@ -44,7 +44,7 @@ const BarChart = ({ data }) => {
       {/* Légende dynamique */}
       <Legend data={legendData} />
 
-      <ResponsiveContainer width="100%" minWidth={700} minHeight={320}>
+      <ResponsiveContainer width="100%" height="100%"minWidth={200} minHeight={120}>
         <RechartsBarChart
           data={processedData}
           barGap={10}

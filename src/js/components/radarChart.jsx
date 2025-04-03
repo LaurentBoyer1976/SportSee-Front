@@ -81,8 +81,8 @@ const RadarChart = ({ data }) => {
         className="radarChart"
         width="100%"
         height="100%"
-        minHeight={300}
-        minWidth={250}
+        minHeight={150}
+        minWidth={150}
       >
         <RechartsRadarChart cx="50%" cy="50%" outerRadius="70%" data={sortedData}>
           <PolarGrid />

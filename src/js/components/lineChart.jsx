@@ -58,8 +58,8 @@ const LineChart = ({ data }) => {
         className="lineChart"
         width="100%"
         height="100%"
-        minHeight={300}
-        minWidth={250}
+        minHeight={150}
+        minWidth={150}
       >
         {/* Graphique linéaire */}
         <RechartsLineChart

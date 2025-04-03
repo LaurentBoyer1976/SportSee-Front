@@ -4,12 +4,11 @@
 .keyDataCard{
     display: flex;
     flex-direction: column;
-   
-   // align-self: flex-start;
-    height: 100%;
+    //align-self: flex-start;
+    height: 100vh;
     max-height: 615px;
     width: 35%;
-    padding: 20px;
-    row-gap: 40px;
+    padding: 1vh;
+    row-gap: 1vh;
     box-sizing: border-box;
 }
