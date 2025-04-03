@@ -25,9 +25,9 @@
   height: 100vh;
   width: 81vw;
   max-height: 78vh;
-  -webkit-column-gap: 1vh;
-     -moz-column-gap: 1vh;
-          column-gap: 1vh;
+  -webkit-column-gap: 7vh;
+     -moz-column-gap: 7vh;
+          column-gap: 7vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }/*# sourceMappingURL=profile.css.map */
