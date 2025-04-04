@@ -32,7 +32,6 @@ const BarChart = ({ data }) => {
   const maxKilogram = Math.max(...userTickCount) + 1;
   const minKilogram = Math.min(...userTickCount) - 1;
   const userTicks = [...new Set([maxKilogram, minKilogram, ...userTickCount])].sort((a, b) => a - b);
-  console.log(userTicks);
 
   // Données pour la légende
   const legendData = [

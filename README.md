@@ -188,6 +188,18 @@ src/
 
 ---
 
+## Fonctionnement des routes dans le navigateur
+
+Lors de l'utilisation de l'application frontend, les routes affichées dans le navigateur suivent un format propre et convivial, tel que :
+
+```
+http://localhost:5173/
+```
+
+Ce design garantit que les points de terminaison réels de l'API (par exemple, `/user/:id`, `/user/:id/activity`) ne sont pas exposés directement dans la barre d'adresse du navigateur. Cette approche améliore la sécurité des données en abstrayant la structure de l'API backend pour l'utilisateur final. Tous les appels API sont gérés en interne par l'application frontend, assurant une expérience utilisateur fluide et sécurisée.
+
+---
+
 ## Formatage des données
 
 Les données brutes récupérées via les API sont formatées avant d'être utilisées dans les composants. Voici un exemple de formatage :
