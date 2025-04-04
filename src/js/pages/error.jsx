@@ -1,30 +1,28 @@
-import { useEffect } from "react";
-import Error from "../components/error";
+import  { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/scss/pages/errorPage.scss";
 
 /**
  * @description Page d'erreur
- * @returns {JSX.Element} Page d'erreur
+ * @returns {JSX.Element} - Composant de la page d'erreur
  */
 const ErrorPage = () => {
-  useEffect(() => {
-    // Ajoute la classe "error-page" à l'élément #root
-    const rootElement = document.getElementById("root");
-    if (rootElement) {
-      rootElement.classList.add("error-page");
-    }
+  const navigate = useNavigate();
 
-    // Nettoie la classe lorsque le composant est démonté
-    return () => {
-      if (rootElement) {
-        rootElement.classList.remove("error-page");
-      }
-    };
-  }, []);
+  useEffect(() => {
+    const user = localStorage.getItem("user"); // Vérifie si un utilisateur est connecté
+    if (user) {
+      const { userId } = JSON.parse(user); // Récupère l'ID utilisateur depuis le localStorage
+      navigate(`/profile/${userId}`); // Redirige vers la page utilisateur
+    } else {
+      navigate("/login"); // Redirige vers la page de connexion
+    }
+  }, [navigate]);
 
   return (
     <div className="errorPage">
-      <Error message="La page que vous recherchez est introuvable." />
+      <h1>Erreur 404</h1>
+      <p>La page que vous recherchez n'existe pas.</p>
     </div>
   );
 };

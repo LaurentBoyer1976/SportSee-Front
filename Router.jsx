@@ -24,10 +24,15 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
+        {/* Route pour la page de connexion */}
         <Route path="/login" element={<LoginPage onLogin={updateUserId} />} />
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Profile userId={userId} />} />
+
+        {/* Route dynamique pour le profil avec l'ID utilisateur */}
+        <Route path="/profile/:userId" element={<Layout />}>
+          <Route index element={<Profile />} />
         </Route>
+
+        {/* Route pour les erreurs */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
