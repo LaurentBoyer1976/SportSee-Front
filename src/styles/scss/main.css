@@ -86,7 +86,7 @@ main {
           flex-direction: row;
   width: 100%;
   height: 100vh;
-  -webkit-column-gap: 7vw;
-     -moz-column-gap: 7vw;
-          column-gap: 7vw;
+  -webkit-column-gap: 6vw;
+     -moz-column-gap: 6vw;
+          column-gap: 6vw;
 }/*# sourceMappingURL=main.css.map */
