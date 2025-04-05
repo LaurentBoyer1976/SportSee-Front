@@ -6,12 +6,16 @@ import PropTypes from "prop-types";
  * @param {Object} data - User name data
  * @returns {JSX.Element} User name component
  */
-const UserName = ({ data }) => {
-  return <h1 className="userProfile__header--content-title">Bonjour <span className="firstname">{data}</span></h1>;
+const UserName = ({ data = "utilisateur" }) => {
+  return (
+    <h1 className="userProfile__header--content-title">
+      Bonjour <span className="firstname">{data || "utilisateur"}</span>
+    </h1>
+  );
 };
 
 UserName.propTypes = {
-  data: PropTypes.string.isRequired,
+  data: PropTypes.string,
 };
 
 export default UserName;

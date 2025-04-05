@@ -46,16 +46,35 @@ describe("MainHeader Component", () => {
     hooks.default.mockReturnValue({
       userInfo: { firstName: "Karl" },
     });
-    render(<MainHeader userId={12} />);
-    expect(screen.getByText(/Bonjour, Karl!/i)).toBeInTheDocument();
+    render(<MainHeader userId={"12"} />); // Correction : userId est une chaîne
+    expect(
+      screen.getByText((content, element) => {
+        return (
+          element.tagName.toLowerCase() === "h1" &&
+          content.includes("Bonjour") &&
+          element.querySelector(".firstname")?.textContent === "Karl"
+        );
+      }),
+    ).toBeInTheDocument();
   });
 
   it("shows a loading message if data is unavailable", () => {
     hooks.default.mockReturnValue(null);
-    render(<MainHeader userId={12} />);
+    render(<MainHeader userId={"12"} />); // Correction : userId est une chaîne
     expect(
       screen.getByText(/Chargement des informations utilisateur.../i),
     ).toBeInTheDocument();
+  });
+
+  it("handles API errors gracefully", () => {
+    hooks.default.mockImplementation(() => {
+      throw new Error("API Error");
+    });
+
+    render(<MainHeader userId={"12"} />); // Correction : userId est une chaîne
+    expect(
+      screen.getByText(/Une erreur est survenue lors du chargement des données./i),
+    ).toBeInTheDocument(); // Vérifie qu'un message d'erreur est affiché
   });
 });
 
@@ -71,5 +90,11 @@ describe("UserName Component", () => {
         element.querySelector(".firstname")?.textContent === "Karl"
       );
     })).toBeInTheDocument();
+  });
+
+  it("affiche un message par défaut si aucune donnée n'est fournie", () => {
+    render(<UserName data={null} />);
+    expect(screen.getByText(/Bonjour/i)).toBeInTheDocument();
+    expect(screen.getByText(/utilisateur/i)).toBeInTheDocument();
   });
 });

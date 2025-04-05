@@ -6,5 +6,6 @@ export default {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"], // Fichiers de configuration supplémentaires
   moduleNameMapper: {
     "\\.(css|scss)$": "identity-obj-proxy", // Mock des fichiers CSS/SCSS
+    "\\.svg$": "<rootDir>/__mocks__/svgMock.js",
   },
 };

@@ -35,4 +35,25 @@ describe("MainHeader Component", () => {
       screen.getByText(/Chargement des informations utilisateur.../i),
     ).toBeInTheDocument();
   });
+
+  it("affiche un message d'erreur si les données sont manquantes", () => {
+    hooks.default.mockImplementation(() => {
+      throw new Error("API Error");
+    });
+    render(<MainHeader userId={"12"} />);
+    expect(
+      screen.getByText(/Une erreur est survenue lors du chargement des données./i),
+    ).toBeInTheDocument(); // Vérifie qu'un message d'erreur est affiché
+  });
+
+  it("gère correctement les erreurs API", () => {
+    hooks.default.mockImplementation(() => {
+      throw new Error("Erreur API simulée");
+    });
+
+    render(<MainHeader userId={"12"} />);
+    expect(
+      screen.getByText(/Une erreur est survenue lors du chargement des données./i),
+    ).toBeInTheDocument(); // Vérifie qu'un message d'erreur est affiché
+  });
 });

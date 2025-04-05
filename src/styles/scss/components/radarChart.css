@@ -9,4 +9,6 @@
           box-sizing: border-box;
   background-color: #282D30;
   border-radius: 5px;
+  min-width: 200px;
+  min-height: 200px;
 }/*# sourceMappingURL=radarChart.css.map */

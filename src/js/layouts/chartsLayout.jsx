@@ -21,35 +21,40 @@ const ChartsLayout = ({ userId }) => {
   const performance = useFetchUserPerformance(userId);
   const userInfo = useFetchUserInfo(userId); // Récupère les informations utilisateur, y compris le score
 
-  if (
-    !activity ||
-    !averageSessions ||
-    !performance ||
-    !userInfo ||
-    userInfo.score === null
-  ) {
-    return <div>Chargement des graphiques...</div>;
-  }
+  try {
+    if (!activity || !averageSessions || !performance || !userInfo) {
+      return <div>Chargement des données...</div>;
+    }
 
-  const formattedScore = [{ name: "Score", value: userInfo.score }]; // Utilise le score depuis userInfo
+    if (!performance || !userInfo || userInfo.score === null) {
+      return <div>Chargement des graphiques...</div>;
+    }
 
-  return (
-    <div className="chartsLayout">
-      {/* Utilisation du composant BarChart */}
-      <BarChart data={activity.sessions} />
+    const formattedScore = [{ name: "Score", value: userInfo.score }]; // Utilise le score depuis userInfo
 
-      <div className="charts__container">
-        {/* Utilisation du composant LineChart */}
-        <LineChart data={averageSessions.sessions} />
+    return (
+      <div className="chartsLayout">
+        {/* Utilisation du composant BarChart */}
+        <BarChart data={activity.sessions} />
 
-        {/* Utilisation du composant RadarChart */}
-        <RadarChart data={performance.data} />
+        <div className="charts__container">
+          {/* Utilisation du composant LineChart */}
+          <LineChart data={averageSessions.sessions} />
 
-        {/* Utilisation du composant RadialChart */}
-        <RadialChart data={formattedScore} />
+          {/* Utilisation du composant RadarChart */}
+          <RadarChart data={performance.data} />
+
+          {/* Utilisation du composant RadialChart */}
+          <RadialChart data={formattedScore} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    if (process.env.NODE_ENV !== "test") {
+      console.error("Erreur lors du chargement des graphiques :", error.message);
+    }
+    return <div className="error">Une erreur est survenue lors du chargement des graphiques.</div>;
+  }
 };
 
 ChartsLayout.propTypes = {

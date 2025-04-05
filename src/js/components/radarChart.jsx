@@ -1,3 +1,4 @@
+import React from "react";
 import {
   RadarChart as RechartsRadarChart,
   PolarGrid,
@@ -14,7 +15,7 @@ import "../../styles/scss/components/radarChart.scss";
  * @returns {JSX.Element} - Le composant RadarChart
  */
 
-const RadarChart = ({ data }) => {
+const RadarChart = ({ data = [{ kindName: "N/A", value: 0 }] }) => {
   // Mapping des noms en français
   const kindNameMapping = {
     cardio: "Cardio",
@@ -106,10 +107,10 @@ const RadarChart = ({ data }) => {
 RadarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.number.isRequired,
       kindName: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
     })
-  ).isRequired,
+  ),
 };
 
 export default RadarChart;

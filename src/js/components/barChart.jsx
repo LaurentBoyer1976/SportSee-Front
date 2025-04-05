@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BarChart as RechartsBarChart,
   Bar,
@@ -17,6 +18,9 @@ import "../../styles/scss/components/legend.scss";
  */
 
 const BarChart = ({ data }) => {
+  if (!data || data.length === 0) {
+    return <div>Aucune donnée disponible</div>;
+  }
   // Transformation des données pour formater les dates
   const processedData = data.map((item) => {
     const date = new Date(item.day);
