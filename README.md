@@ -226,13 +226,46 @@ export const formatPerformanceData = (data) => {
 
 ---
 
+## Gestion des erreurs API
+
+Les erreurs API sont gérées de manière centralisée grâce à la fonction `handleApiError`. Cette fonction :
+- Log les erreurs dans la console pour faciliter le débogage.
+- Lance une nouvelle erreur avec un message clair pour les développeurs.
+
+### Exemple d'utilisation :
+```js
+import { handleApiError } from "./utils/errorHandler";
+
+try {
+  const response = await fetch("http://localhost:3000/user/12");
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json();
+} catch (error) {
+  handleApiError(error, "/user/12");
+}
+```
+
+---
+
 ## Tests
+
+Les tests unitaires couvrent les scénarios suivants :
+- Récupération des données utilisateur via l'API.
+- Gestion des erreurs HTTP (ex. : statut 404).
+- Gestion des erreurs réseau (ex. : perte de connexion).
+- Utilisation des données mockées en mode développement.
 
 Exécutez les tests unitaires avec Jest :
 
 ```bash
 npm run test
 ```
+
+Pour vérifier spécifiquement la gestion des erreurs API, consultez les fichiers de test suivants :
+- `_tests_/userService.test.js`
+- `_tests_/errorHandler.test.js`
 
 ---
 
