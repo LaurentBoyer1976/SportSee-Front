@@ -64,6 +64,12 @@ import UserName from "../src/js/components/userName";
 describe("UserName Component", () => {
   it("affiche le prénom de l'utilisateur", () => {
     render(<UserName data="Karl" />);
-    expect(screen.getByText(/Bonjour, Karl!/i)).toBeInTheDocument();
+    expect(screen.getByText((content, element) => {
+      return (
+        element.tagName.toLowerCase() === "h1" &&
+        content.includes("Bonjour") &&
+        element.querySelector(".firstname")?.textContent === "Karl"
+      );
+    })).toBeInTheDocument();
   });
 });

@@ -1,7 +1,7 @@
 import { USE_MOCK_DATA } from "../../constants/config";
+import { BASE_URL } from "../../constants/api";
 import mockData from "../../../mock/mockData.js";
-
-const BASE_URL = "http://localhost:3000/user";
+import { handleApiError } from "../../utils/errorHandler";
 
 /**
  * Fonction générique pour effectuer un appel API ou utiliser les données mockées.
@@ -11,20 +11,24 @@ const BASE_URL = "http://localhost:3000/user";
  */
 const fetchApiData = async (endpoint) => {
   if (USE_MOCK_DATA) {
-    // Utilisation des données mockées
-    const [resource, userId] = endpoint.split("/");
-    return { data: mockData[resource.toUpperCase()].find((item) => item.userId == userId) };
+    try {
+      // Utilisation des données mockées
+      const [resource, userId] = endpoint.split("/");
+      return { data: mockData[resource.toUpperCase()].find((item) => item.userId == userId) };
+    } catch (error) {
+      handleApiError(error, endpoint);
+    }
   }
 
   try {
     const response = await fetch(`${BASE_URL}/${endpoint}`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch data from ${endpoint}`);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
     return await response.json();
   } catch (error) {
-    console.error(`Error fetching data from ${endpoint}:`, error);
-    throw error;
+    handleApiError(error, endpoint);
+    throw error; // Ajoutez cette ligne pour rejeter la promesse
   }
 };
 

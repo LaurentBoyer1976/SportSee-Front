@@ -20,7 +20,9 @@ const MainHeader = ({ userId }) => {
   return (
     <header className="userProfile__header">
       <div className="userProfile__header--content">
-        <UserName data={userInfo.userInfo.firstName} />
+        <h1 className="userProfile__header--content-title">
+          Bonjour <span className="firstname">{userInfo.userInfo.firstName}</span>
+        </h1>
         <h2 className="userProfile__header--content-text">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
       </div>
     </header>

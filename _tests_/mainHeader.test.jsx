@@ -21,15 +21,16 @@ describe("MainHeader Component", () => {
       userInfo: { firstName: "Karl" },
     });
 
-    render(<MainHeader userId={12} />);
-    expect(screen.getByText(/Bonjour, Karl!/i)).toBeInTheDocument();
+    render(<MainHeader userId={"12"} />); // Correction : userId est une chaîne
+    expect(screen.getByText(/Bonjour/i)).toBeInTheDocument();
+    expect(screen.getByText(/Karl/i)).toBeInTheDocument();
   });
 
   it("affiche un message de chargement si les données ne sont pas disponibles", () => {
     // Simule une réponse sans données utilisateur
     hooks.default.mockReturnValue(null);
 
-    render(<MainHeader userId={12} />);
+    render(<MainHeader userId={"12"} />); // Correction : userId est une chaîne
     expect(
       screen.getByText(/Chargement des informations utilisateur.../i),
     ).toBeInTheDocument();
