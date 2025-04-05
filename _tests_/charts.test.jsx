@@ -51,7 +51,7 @@ describe("Charts Components", () => {
 
   test("renders LineChart with correct data", () => {
     renderWithContainer(<LineChart data={mockData.USER_AVERAGE_SESSIONS[0].sessions} />);
-    expect(screen.getByText((_, element) => element?.textContent.includes("30"))).toBeInTheDocument(); // Vérifie la durée
+    expect(screen.queryByText((_, element) => element?.textContent.includes("30"))).not.toBeNull(); // Vérifie la durée
     expect(screen.getByText((_, element) => element?.textContent.includes("40"))).toBeInTheDocument();
   });
 
